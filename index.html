@@ -16,14 +16,15 @@
     <header class="site-header">
         <div class="container">
             <a class="brand" href="index.html" aria-label="Scaffold home">
-                <img src="assets/scaffold.svg" width="34" height="34" alt="" />
                 <span class="wordmark">SCAFFOLD</span>
+                <img class="brand-mark" src="assets/scaffold-mark.svg" width="34" height="34" alt="" />
             </a>
             <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
             </button>
             <nav class="nav" id="nav">
-                <a href="index.html" aria-current="page">Philosophy</a>
+                <a href="index.html" aria-current="page">Home</a>
+                <a href="philosophy.html">Philosophy</a>
                 <a href="about-us.html">About Us</a>
                 <a href="community.html">Community</a>
                 <a href="resources.html">Resources</a>
@@ -35,10 +36,54 @@
         <!-- ── Hero ───────────────────────────────────────────────────────── -->
         <section class="hero">
             <div class="container">
-                <img class="logo-xl" src="assets/scaffold.svg" alt="Scaffold logo" />
-                <h1>A digital space dedicated to <span class="accent">critical thinking</span>.</h1>
-                <p class="lead">Scaffold won't solve your problems, resolve your conflicts, or do your homework. Only you can do that. Through Socratic questioning, it simply supports you along the way — encouraging you to keep going.</p>
-                <div class="cta-row">
+                <!-- Logo builds floor-by-floor on load (ported from the app's ScaffoldLogo).
+                     Groups animate bottom → top; per-group animation-delay set inline. -->
+                <svg class="logo-xl logo-build" viewBox="80 88 80 82" role="img" aria-label="Scaffold logo"
+                     fill="none" stroke="#e8f0ea" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4">
+                    <!-- Level 0 -->
+                    <g style="animation-delay:0s"><path d="M 0,0 V -13.19 -21" transform="matrix(1.3333333,0,0,-1.3333333,106.8328,137.9988)"/></g>
+                    <g style="animation-delay:0.185s">
+                        <path d="M -17.99,-6.75 l -17.99,-6.74" transform="matrix(1.3333333,0,0,-1.3333333,130.80613,128.5988)"/>
+                        <path d="M 17.99,6.3 L 35.98,-0.44" transform="matrix(1.3333333,0,0,-1.3333333,82.8328,145.9988)"/>
+                        <path d="M 0,0 -0.02,-0.01 -18,-6.75 -36,0" transform="matrix(1.3333333,0,0,-1.3333333,130.8328,146.58547)"/>
+                    </g>
+                    <!-- Level 1 -->
+                    <g style="animation-delay:0.115s">
+                        <path d="M 0,0 V 13.05" transform="matrix(1.3333333,0,0,-1.3333333,82.8328,145.9988)"/>
+                        <path d="M 0,0 V -0.44 -8" transform="matrix(1.3333333,0,0,-1.3333333,82.8328,145.9988)"/>
+                    </g>
+                    <g style="animation-delay:0.30s">
+                        <path d="M 0,0 18,6.75" transform="matrix(1.3333333,0,0,-1.3333333,82.8328,128.5988)"/>
+                        <path d="M 0,0 -17.99,-6.75" transform="matrix(1.3333333,0,0,-1.3333333,130.80613,128.5988)"/>
+                        <path d="M 0,13.05 L 17.99,6.3" transform="matrix(1.3333333,0,0,-1.3333333,82.8328,145.9988)"/>
+                    </g>
+                    <!-- Level 2 -->
+                    <g style="animation-delay:0.23s">
+                        <path d="M 0,0 V 7.68" transform="matrix(1.3333333,0,0,-1.3333333,130.8328,156.82547)"/>
+                        <path d="m 0,0 v -13.03 -0.41" transform="matrix(1.3333333,0,0,-1.3333333,130.8328,128.66547)"/>
+                        <path d="m 0,0 v -13.49 -0.04" transform="matrix(1.3333333,0,0,-1.3333333,130.8328,110.62547)"/>
+                    </g>
+                    <g style="animation-delay:0.415s">
+                        <path d="M 0,0 -0.02,-0.01 -18,-6.75 -18.02,-6.74 -36,0" transform="matrix(1.3333333,0,0,-1.3333333,154.8328,119.61213)"/>
+                        <path d="M 18,-6.75 l 17.98,-6.74" transform="matrix(1.3333333,0,0,-1.3333333,106.8328,101.62547)"/>
+                        <path d="M -17.99,-6.75 l -17.99,-6.74" transform="matrix(1.3333333,0,0,-1.3333333,154.80613,101.62547)"/>
+                    </g>
+                    <!-- Level 3 -->
+                    <g style="animation-delay:0.345s"><path d="M -36,0.01 V 13.49" transform="matrix(1.3333333,0,0,-1.3333333,154.8328,119.61213)"/></g>
+                    <g style="animation-delay:0.38s">
+                        <path d="M 0,13.49 V 0.21" transform="matrix(1.3333333,0,0,-1.3333333,154.8328,119.61213)"/>
+                        <path d="M 0,0 V -0.21 -21.4" transform="matrix(1.3333333,0,0,-1.3333333,154.8328,119.33213)"/>
+                    </g>
+                    <g style="animation-delay:0.565s">
+                        <path d="M -36,13.49 L -18,20.24 -0.02,13.5 0,13.49" transform="matrix(1.3333333,0,0,-1.3333333,154.8328,119.61213)"/>
+                        <path d="M 0,0 17.99,-6.75" transform="matrix(1.3333333,0,0,-1.3333333,106.8328,101.62547)"/>
+                        <path d="M 0,0 -17.99,-6.75" transform="matrix(1.3333333,0,0,-1.3333333,154.80613,101.62547)"/>
+                    </g>
+                </svg>
+                <h1 class="hero-fade" style="animation-delay:1.2s;">It takes just one thought to start.</h1>
+                <p class="lead hero-fade" style="animation-delay:1.4s;">Scaffold is a digital support designed to help you develop your thoughts.</p>
+                <p class="lead hero-fade" style="animation-delay:1.55s;">At each stage of your thinking, Scaffold empowers you to maximize your independence and creativity.</p>
+                <div class="cta-row hero-fade" style="animation-delay:1.7s;">
                     <!-- TODO: point href at the deployed Scaffold app URL -->
                     <a class="btn btn-primary" href="#">Launch Scaffold</a>
                     <a class="btn btn-ghost" href="about-us.html">Meet the makers</a>
@@ -46,94 +91,154 @@
             </div>
         </section>
 
-        <!-- ── What it is ─────────────────────────────────────────────────── -->
-        <section class="section">
+        <!-- ── Feature walkthrough ────────────────────────────────────────────
+             Scroll-through of Scaffold's features. Each .feature holds a demo
+             placeholder — swap the .media-placeholder for a <video> or an
+             interactive demo when the recordings are ready. -->
+        <section class="section features">
             <div class="container">
-                <div class="section-head center">
-                    <span class="eyebrow">The idea</span>
-                    <h2>A thinking partner, not an answer machine.</h2>
-                    <p class="lead center" style="margin-inline:auto;">Most tools race to hand you an answer. Scaffold does the opposite — it asks the questions that make <em>your</em> thinking sharper.</p>
-                </div>
-                <div class="grid">
-                    <div class="card">
-                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
-                        <h3>It asks, it doesn't answer</h3>
-                        <p>Scaffold guides you with questions instead of conclusions. The insight is always yours.</p>
+                <!-- 1 · Set your own agenda -->
+                <article class="feature" data-reveal>
+                    <h2>Set your own agenda</h2>
+                    <p class="feature-desc">Start by providing the context for any subject that you want to think about. The world is your oyster.</p>
+                    <!-- Interactive demo: a faithful mock of the app's opening screen
+                         (frontend/src/App.tsx — logo, intro line, PromptInput). It
+                         auto-types a sample thought into the chatbox, then loops.
+                         Driven by initAgendaDemo() in js/main.js. -->
+                    <div class="demo demo-agenda" data-demo="agenda"
+                         data-prompt="I want to think through an opinion on a topic that I’ve been following in the news"
+                         role="group" aria-label="Interactive demo: typing a thought into Scaffold's chatbox">
+                        <div class="demo-screen">
+                            <svg class="demo-logo" viewBox="80 88 80 82" role="img" aria-label="Scaffold logo"
+                                 fill="none" stroke="#e8f0ea" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4">
+                                <path d="M 0,0 V -13.19 -21" transform="matrix(1.3333333,0,0,-1.3333333,106.8328,137.9988)"/>
+                                <path d="M -17.99,-6.75 l -17.99,-6.74" transform="matrix(1.3333333,0,0,-1.3333333,130.80613,128.5988)"/>
+                                <path d="M 17.99,6.3 L 35.98,-0.44" transform="matrix(1.3333333,0,0,-1.3333333,82.8328,145.9988)"/>
+                                <path d="M 0,0 -0.02,-0.01 -18,-6.75 -36,0" transform="matrix(1.3333333,0,0,-1.3333333,130.8328,146.58547)"/>
+                                <path d="M 0,0 V 13.05" transform="matrix(1.3333333,0,0,-1.3333333,82.8328,145.9988)"/>
+                                <path d="M 0,0 V -0.44 -8" transform="matrix(1.3333333,0,0,-1.3333333,82.8328,145.9988)"/>
+                                <path d="M 0,0 18,6.75" transform="matrix(1.3333333,0,0,-1.3333333,82.8328,128.5988)"/>
+                                <path d="M 0,0 -17.99,-6.75" transform="matrix(1.3333333,0,0,-1.3333333,130.80613,128.5988)"/>
+                                <path d="M 0,13.05 L 17.99,6.3" transform="matrix(1.3333333,0,0,-1.3333333,82.8328,145.9988)"/>
+                                <path d="M 0,0 V 7.68" transform="matrix(1.3333333,0,0,-1.3333333,130.8328,156.82547)"/>
+                                <path d="m 0,0 v -13.03 -0.41" transform="matrix(1.3333333,0,0,-1.3333333,130.8328,128.66547)"/>
+                                <path d="m 0,0 v -13.49 -0.04" transform="matrix(1.3333333,0,0,-1.3333333,130.8328,110.62547)"/>
+                                <path d="M 0,0 -0.02,-0.01 -18,-6.75 -18.02,-6.74 -36,0" transform="matrix(1.3333333,0,0,-1.3333333,154.8328,119.61213)"/>
+                                <path d="M 18,-6.75 l 17.98,-6.74" transform="matrix(1.3333333,0,0,-1.3333333,106.8328,101.62547)"/>
+                                <path d="M -17.99,-6.75 l -17.99,-6.74" transform="matrix(1.3333333,0,0,-1.3333333,154.80613,101.62547)"/>
+                                <path d="M -36,0.01 V 13.49" transform="matrix(1.3333333,0,0,-1.3333333,154.8328,119.61213)"/>
+                                <path d="M 0,13.49 V 0.21" transform="matrix(1.3333333,0,0,-1.3333333,154.8328,119.61213)"/>
+                                <path d="M 0,0 V -0.21 -21.4" transform="matrix(1.3333333,0,0,-1.3333333,154.8328,119.33213)"/>
+                                <path d="M -36,13.49 L -18,20.24 -0.02,13.5 0,13.49" transform="matrix(1.3333333,0,0,-1.3333333,154.8328,119.61213)"/>
+                                <path d="M 0,0 17.99,-6.75" transform="matrix(1.3333333,0,0,-1.3333333,106.8328,101.62547)"/>
+                                <path d="M 0,0 -17.99,-6.75" transform="matrix(1.3333333,0,0,-1.3333333,154.80613,101.62547)"/>
+                            </svg>
+                            <p class="demo-intro">It takes just one thought to start.</p>
+                            <div class="demo-chatbox">
+                                <div class="demo-field">
+                                    <span class="demo-placeholder">I want to think through…</span>
+                                    <span class="demo-typed" aria-live="polite"></span><span class="demo-caret" aria-hidden="true"></span>
+                                </div>
+                                <button class="demo-send" type="button" aria-label="Send" tabindex="-1">→</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card">
-                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8l7-5 7 5"/><path d="M5 8v8l7 5 7-5V8"/></svg></div>
-                        <h3>Your closed universe</h3>
-                        <p>It draws only from the context you bring — it doesn't pull in outside sources, so the reasoning stays yours to own.</p>
+                </article>
+
+                <!-- 2 · Remember kernels of insight -->
+                <article class="feature" data-reveal>
+                    <h2>Remember kernels of insight</h2>
+                    <p class="feature-desc">Use the formatting bar to emphasize words or phrases that reflect real-time ingenuity.</p>
+                    <div class="media-placeholder" role="img" aria-label="Demo: using the formatting bar to highlight insights">
+                        <svg class="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
+                        <span class="media-label">Demo — highlighting insights with the formatting bar</span>
+                        <span class="media-note">Recording coming soon</span>
                     </div>
-                    <div class="card">
-                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-                        <h3>You decide when you're done</h3>
-                        <p>Scaffold offers to wrap up when it senses you've addressed your inquiry — but concluding is always your call.</p>
+                </article>
+
+                <!-- 3 · Establish your own criteria for success -->
+                <article class="feature" data-reveal>
+                    <h2>Establish your own criteria for success</h2>
+                    <p class="feature-desc">Click the checkmark to conclude the interaction when you feel satisfied with your progress.</p>
+                    <div class="media-placeholder" role="img" aria-label="Demo: clicking the checkmark to open the takeaways pop-up">
+                        <svg class="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
+                        <span class="media-label">Demo — concluding into the takeaways pop-up</span>
+                        <span class="media-note">Recording coming soon</span>
                     </div>
-                </div>
+                </article>
+
+                <!-- 4 · Reflect on your progress -->
+                <article class="feature" data-reveal>
+                    <h2>Reflect on your progress</h2>
+                    <p class="feature-desc">At the end, take time to reflect on what you’ve uncovered during your session.</p>
+                    <div class="media-placeholder" role="img" aria-label="Demo: typing takeaways into the pop-up">
+                        <svg class="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
+                        <span class="media-label">Demo — writing takeaways in the pop-up</span>
+                        <span class="media-note">Recording coming soon</span>
+                    </div>
+                </article>
+
+                <!-- 5 · Save and export for future reference -->
+                <article class="feature" data-reveal>
+                    <h2>Save and export for future reference</h2>
+                    <p class="feature-desc">Export the interaction, either as an HTML or Text file, to look back on your thought process later on.</p>
+                    <div class="media-placeholder" role="img" aria-label="Demo: exporting the interaction">
+                        <svg class="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
+                        <span class="media-label">Demo — exporting the interaction</span>
+                        <span class="media-note">Recording coming soon</span>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <!-- ── Socratic approach ──────────────────────────────────────────── -->
-        <section class="section">
+        <!-- ── FAQ ────────────────────────────────────────────────────────────
+             Native <details> accordions — work without JS. Fill in the empty
+             answers as they're finalized. -->
+        <section class="section faq-section">
             <div class="container">
-                <div class="prose" style="margin-inline:auto;">
-                    <span class="eyebrow">The method</span>
-                    <h2>A Socratic questioning approach.</h2>
-                    <p>Through Socratic questioning, Scaffold pushes you to deeply engage with a topic of your choosing. Rather than filling in the blanks for you, it helps you do the harder, more valuable work of thinking it through yourself. Specifically, it helps you:</p>
-                    <div class="pull">
-                        <strong>Surface</strong> your underlying assumptions · <strong>Consider</strong> the internal consistency of your beliefs · <strong>Explore</strong> the implications of your thinking.
-                    </div>
-                    <p>Importantly, Scaffold draws from the closed system that is your universe. It does not reference outside sources, and is therefore unable to verify the accuracy of your statements. You are responsible for compiling the relevant context — Scaffold will guide you in parsing through it. For factual answers, consult additional resources.</p>
-                </div>
-            </div>
-        </section>
+                <h2 class="faq-title" data-reveal>Frequently asked questions</h2>
+                <div class="faq">
+                    <details class="faq-item" data-reveal>
+                        <summary>Why is your website called Scaffold?<span class="faq-chevron" aria-hidden="true"></span></summary>
+                        <div class="faq-answer">
+                            <p>Scaffold is a reference to the practice of scaffolding, a technique whereby individuals engage with new knowledge while receiving external support.</p>
+                        </div>
+                    </details>
 
-        <!-- ── How a session goes ─────────────────────────────────────────── -->
-        <section class="section">
-            <div class="container">
-                <div class="section-head center">
-                    <span class="eyebrow">How it goes</span>
-                    <h2>It takes just one thought to start.</h2>
-                </div>
-                <div class="steps">
-                    <div class="step">
-                        <div>
-                            <h3>Bring a thought</h3>
-                            <p>Start with anything you want to think through — an opinion on the news, an argument for an essay, a perspective on what it means to lead a good life.</p>
+                    <details class="faq-item" data-reveal>
+                        <summary>What is the purpose of Scaffold?<span class="faq-chevron" aria-hidden="true"></span></summary>
+                        <div class="faq-answer">
+                            <p>Scaffold is a digital support designed to help users develop their thoughts in academic and real-world contexts.</p>
                         </div>
-                    </div>
-                    <div class="step">
-                        <div>
-                            <h3>Get questioned</h3>
-                            <p>Scaffold responds not with answers, but with questions that probe your reasoning, test your assumptions, and open up angles you hadn't considered.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div>
-                            <h3>Think it through</h3>
-                            <p>Capture what surfaces along the way with sticky notes, and follow the thread wherever it leads. The work — and the payoff — is yours.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div>
-                            <h3>Conclude, and keep it</h3>
-                            <p>When you're satisfied, wrap up the interaction, distill your takeaways, and save or export it to revisit later.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    </details>
 
-        <!-- ── Call to action band ────────────────────────────────────────── -->
-        <section class="section band">
-            <div class="container">
-                <h2>So, what do you want to think about?</h2>
-                <p class="lead center" style="margin-inline:auto;">One thought is all it takes to begin.</p>
-                <div class="cta-row">
-                    <!-- TODO: point href at the deployed Scaffold app URL -->
-                    <a class="btn btn-primary" href="#">Launch Scaffold</a>
-                    <a class="btn btn-ghost" href="community.html">Join the community</a>
+                    <details class="faq-item" data-reveal>
+                        <summary>Will Scaffold ever give you the answer?<span class="faq-chevron" aria-hidden="true"></span></summary>
+                        <div class="faq-answer">
+                            <p>No. Scaffold is designed to continually ask questions. It will not respond to users with declarative statements.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item" data-reveal>
+                        <summary>Does Scaffold make mistakes?<span class="faq-chevron" aria-hidden="true"></span></summary>
+                        <div class="faq-answer">
+                            <p>Scaffold draws exclusively from the context that the user provides and does not pull information from outside sources. If the user is interacting with Scaffold in a context where accuracy matters, they should independently consult and verify information.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item" data-reveal>
+                        <summary>Why is Scaffold green?<span class="faq-chevron" aria-hidden="true"></span></summary>
+                        <div class="faq-answer">
+                            <p>Brendan and Hillary were born and raised in New York City, where the default color for scaffolding is dark green.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item" data-reveal>
+                        <summary>Why does Scaffold move up instead of down?<span class="faq-chevron" aria-hidden="true"></span></summary>
+                        <div class="faq-answer">
+                            <p>The flow of the website is meant to stimulate the building up of ideas.</p>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
@@ -144,7 +249,8 @@
         <div class="container">
             <span>© <span id="year">2026</span> Scaffold · Built by Brendan &amp; Hillary</span>
             <nav>
-                <a href="index.html">Philosophy</a>
+                <a href="index.html">Home</a>
+                <a href="philosophy.html">Philosophy</a>
                 <a href="about-us.html">About Us</a>
                 <a href="community.html">Community</a>
                 <a href="resources.html">Resources</a>

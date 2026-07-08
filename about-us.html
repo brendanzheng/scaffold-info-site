@@ -15,14 +15,15 @@
     <header class="site-header">
         <div class="container">
             <a class="brand" href="index.html" aria-label="Scaffold home">
-                <img src="assets/scaffold.svg" width="34" height="34" alt="" />
                 <span class="wordmark">SCAFFOLD</span>
+                <img class="brand-mark" src="assets/scaffold-mark.svg" width="34" height="34" alt="" />
             </a>
             <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
             </button>
             <nav class="nav" id="nav">
-                <a href="index.html">Philosophy</a>
+                <a href="index.html">Home</a>
+                <a href="philosophy.html">Philosophy</a>
                 <a href="about-us.html" aria-current="page">About Us</a>
                 <a href="community.html">Community</a>
                 <a href="resources.html">Resources</a>
@@ -31,42 +32,63 @@
     </header>
 
     <main>
-        <section class="section-sm" style="padding-top:clamp(48px,8vw,88px);">
+        <!-- ── Intro: Hillary + Brendan ───────────────────────────────────────
+             Photo placeholders throughout — swap each .about-photo for an <img>
+             when the real photos are ready.
+
+             NOTE ON SIZING: the floated bio photos (.photo-left / .photo-right)
+             are kept small on purpose so the paragraph is TALLER than the photo
+             and the text wraps around + below it (as in the mockups). If a real
+             photo ends up taller than its bio text, it will dictate the section
+             height and leave an empty gap between the text and the divider — the
+             same issue we hit with the oversized placeholders. If that happens,
+             shrink the photo (reduce the .photo-left/.photo-right width) until
+             the text is the taller element again. Brendan's real photo is a
+             LANDSCAPE ID photo: give that div the `landscape` class instead of
+             `portrait` (e.g. class="about-photo landscape photo-right"). -->
+        <section class="section-sm about-intro" style="padding-top:clamp(48px,8vw,88px);">
             <div class="container">
-                <div class="prose" style="margin-inline:auto;">
-                    <span class="eyebrow">About us</span>
-                    <h1>A passion project, a long time in the making.</h1>
-                    <p class="lead">We've been building Scaffold for a while now — and thinking about it for even longer.</p>
+                <h1 class="about-title">Hillary + Brendan</h1>
+
+                <div class="about-photo portrait about-photo-centered" role="img" aria-label="Photo of Hillary and Brendan on a video call">
+                    <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9.5" r="2"/><path d="m21 16-4.5-4.5L7 21"/></svg>
+                    <span class="ph-label">Photo — Hillary &amp; Brendan</span>
+                    <span class="ph-note">Placeholder</span>
+                </div>
+
+                <div class="about-copy">
+                    <p>Brendan and Hillary first met when they were ten years old, at a prep school (补习班) in Flushing, New York. Although one student outperformed the other, they found themselves attending the same middle school (high school): Hunter. In fact, they were in the same seventh grade homeroom, and apparently sat next to each other in math class (probably because their last names start with the same letter. Or maybe not). Brendan and Hillary got closer in senior year (the infamous 2019-2020 year), performing a dance together for Hunter’s annual Asian Cultural Society (ACS) show and helping to organize the Asian American Leadership Forum for Youth (AALFY). It was largely radio silent for the four years that they were at college, but they reconnected after both moving back to the city where they grew up post-grad.</p>
+                    <p>Beyond sharing a passion for preserving critical thinking in the age of AI, Brendan and Hillary also both dedicate significant amounts of time to activities that most adults regard as “hobbies” and condense into a single line on their professional resume: Pokémon (Brendan) and volleyball (Hillary). There’s a lot of shared history, but the sections below detail just a bit more about Brendan and Hillary as individuals.</p>
                 </div>
             </div>
         </section>
 
-        <section class="section" style="padding-top:0;">
+        <!-- ── Hillary ────────────────────────────────────────────────────── -->
+        <section class="section about-bio">
             <div class="container">
-                <div class="prose" style="margin-inline:auto;">
-                    <h2>Why we built it</h2>
-                    <p>We kept noticing the same thing: the tools around us are racing to think <em>for</em> us. Ask a question, get an answer — the faster the better. But somewhere in that convenience, the muscle of thinking for yourself gets a little weaker every time.</p>
-                    <p>We wanted the opposite. A quiet, dedicated space that takes your thinking seriously enough to <strong>not</strong> do it for you. Something that asks the next good question instead of handing over a conclusion.</p>
-                    <div class="pull">Scaffold will not try to solve your problems, resolve your internal conflicts, or do your homework. Only you can do that. Scaffold will simply support you along the process, encouraging you to keep going.</div>
-
-                    <h2>Who we are</h2>
-                    <p>We're <strong>Brendan</strong> and <strong>Hillary</strong> — two people who care a lot about how people think, and who wanted to make something that honored that. Scaffold is our passion project, shaped over countless conversations about curiosity, reasoning, and what a genuinely useful thinking partner should feel like.</p>
-                    <p>It's still growing, and we're building it in the open with the people testing it. If you're here, you're part of that.</p>
-
-                    <h2>What we believe</h2>
-                    <p>Good thinking is slow, effortful, and worth it. The point isn't to arrive at an answer as quickly as possible — it's to understand your own reasoning well enough to trust it. Scaffold is our attempt to make room for exactly that.</p>
-                    <p class="muted" style="font-style:italic;">— Brendan &amp; Hillary &lt;3</p>
+                <hr class="section-divider" />
+                <div class="bio">
+                    <div class="about-photo portrait photo-left" role="img" aria-label="Photo of Hillary">
+                        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9.5" r="2"/><path d="m21 16-4.5-4.5L7 21"/></svg>
+                        <span class="ph-label">Photo — Hillary</span>
+                        <span class="ph-note">Placeholder</span>
+                    </div>
+                    <p>Hillary attended Georgetown University, pursuing a joint degree in Business and Global Affairs. Although she never considered herself particularly academic during high school, she discovered a passion for learning in college. Soon, she became enamored with education broadly as an opportunity for personal growth, empowerment, and impact. While at Georgetown, Hillary immersed herself in spaces where she worked with other students as a mentor. She was a Consultant at the Georgetown Writing Center, meeting with hundreds of students over her three-year tenure. A bit different from the one-on-one tutoring interactions she facilitated as a Writing Center tutor, Hillary also served as a Teacher’s Assistant for the gateway course for her major. In this role, she got a bit more exposure to teaching from a classroom perspective and learned more about the role of evaluation in the academic experience. After a wonderful four years at Georgetown, Hillary worked in forensics and litigation consulting for a year and eight months. She is currently working on this project and others full-time, and is relieved to be re-entering an academic environment (law school) come Fall 2026.</p>
                 </div>
             </div>
         </section>
 
-        <section class="section band">
+        <!-- ── Brendan ────────────────────────────────────────────────────── -->
+        <section class="section about-bio">
             <div class="container">
-                <h2>Come think with us.</h2>
-                <p class="lead center" style="margin-inline:auto;">We'd love to hear about your experience thinking with Scaffold.</p>
-                <div class="cta-row">
-                    <a class="btn btn-primary" href="community.html">Join the community</a>
-                    <a class="btn btn-ghost" href="index.html">Read the philosophy</a>
+                <hr class="section-divider" />
+                <div class="bio">
+                    <div class="about-photo portrait photo-right" role="img" aria-label="Photo of Brendan">
+                        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9.5" r="2"/><path d="m21 16-4.5-4.5L7 21"/></svg>
+                        <span class="ph-label">Photo — Brendan</span>
+                        <span class="ph-note">Placeholder</span>
+                    </div>
+                    <p>Brendan first became conscious of the power of education in high school. Having found most of his academic success in STEM environments, he had a transformative experience junior year in his eleventh grade English class. Through a mastery of pedagogy and unwavering patience, his teacher excelled at helping students build luminous ideas out of even the most undeveloped concepts. Brendan saw a unique energy permeate the classroom, one shared by many of his classmates. Inspired, he knew that fostering educational growth in others would be part of his future. Brendan went on to graduate from Cornell University with a degree in Computer Science, where he had formative experiences as both a tutor and a teaching assistant. He currently works full-time as a software engineer and seeks to bring together his technical abilities and his passion for teaching through this project.</p>
                 </div>
             </div>
         </section>
@@ -76,7 +98,8 @@
         <div class="container">
             <span>© <span id="year">2026</span> Scaffold · Built by Brendan &amp; Hillary</span>
             <nav>
-                <a href="index.html">Philosophy</a>
+                <a href="index.html">Home</a>
+                <a href="philosophy.html">Philosophy</a>
                 <a href="about-us.html">About Us</a>
                 <a href="community.html">Community</a>
                 <a href="resources.html">Resources</a>
