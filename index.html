@@ -84,9 +84,7 @@
                 <p class="lead hero-fade" style="animation-delay:1.4s;">Scaffold is a digital support designed to help you develop your thoughts.</p>
                 <p class="lead hero-fade" style="animation-delay:1.55s;">At each stage of your thinking, Scaffold empowers you to maximize your independence and creativity.</p>
                 <div class="cta-row hero-fade" style="animation-delay:1.7s;">
-                    <!-- TODO: point href at the deployed Scaffold app URL -->
-                    <a class="btn btn-primary" href="#">Launch Scaffold</a>
-                    <a class="btn btn-ghost" href="about-us.html">Meet the makers</a>
+                    <a class="btn btn-primary" href="https://scaffold-frontend.onrender.com">Launch Scaffold</a>
                 </div>
             </div>
         </section>
@@ -149,10 +147,76 @@
                 <article class="feature" data-reveal>
                     <h2>Remember kernels of insight</h2>
                     <p class="feature-desc">Use the formatting bar to emphasize words or phrases that reflect real-time ingenuity.</p>
-                    <div class="media-placeholder" role="img" aria-label="Demo: using the formatting bar to highlight insights">
-                        <svg class="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
-                        <span class="media-label">Demo — highlighting insights with the formatting bar</span>
-                        <span class="media-note">Recording coming soon</span>
+                    <!-- Interactive demo: a mock session with the format sidebar. A demo
+                         cursor drags to select a sentence, clicks the Bold (B) tool, and
+                         the sentence turns bold — then it loops. Selection colour and the
+                         bold treatment (weight 800, white) mirror App.tsx. Driven by
+                         initHighlightDemo() in js/main.js. -->
+                    <div class="demo demo-highlight" data-demo="highlight"
+                         role="group" aria-label="Interactive demo: selecting a sentence and bolding it with the formatting bar">
+                        <div class="demo-window">
+                            <div class="demo-body">
+                                <div class="demo-canvas">
+                                    <p class="demo-disclaimer">Scaffold is designed to support your critical thinking by asking questions. Consult additional resources for factual answers.</p>
+                                    <div class="demo-row demo-input-row">
+                                        <div class="demo-input">
+                                            <span class="demo-input-ph">What do you think?</span>
+                                            <button class="demo-arrow" type="button" tabindex="-1" aria-hidden="true">→</button>
+                                        </div>
+                                        <button class="demo-check" type="button" tabindex="-1" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg>
+                                        </button>
+                                    </div>
+                                    <div class="demo-row">
+                                        <div class="demo-card assistant">
+                                            <p>You seem to have worked through a clear explanation for what the closeness reveals. Are you satisfied with your thinking on this, or is there another aspect of the vote's closeness you'd like to explore further?</p>
+                                        </div>
+                                        <span class="demo-target" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><line x1="12" y1="1.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22.5" y2="12"/></svg>
+                                        </span>
+                                    </div>
+                                    <div class="demo-connector" aria-hidden="true"><span></span><span></span></div>
+                                    <div class="demo-row">
+                                        <div class="demo-card user">
+                                            <p>Yes, that framing captures my original inquiry.</p>
+                                        </div>
+                                        <span class="demo-target" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><line x1="12" y1="1.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22.5" y2="12"/></svg>
+                                        </span>
+                                    </div>
+                                    <div class="demo-connector" aria-hidden="true"><span></span><span></span></div>
+                                    <div class="demo-row">
+                                        <div class="demo-card assistant">
+                                            <p>Got it. <span class="demo-boldable">You've established that birthright citizenship was historically accepted, yet the vote was close.</span> You've also suggested that the closeness reflects a shift in the Court's composition toward conservative justices who oppose it for electoral reasons. Does that framing capture what you're thinking, or is there another piece to how the closeness connects to what it reveals?</p>
+                                        </div>
+                                        <span class="demo-target" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><line x1="12" y1="1.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22.5" y2="12"/></svg>
+                                        </span>
+                                    </div>
+                                    <div class="demo-connector" aria-hidden="true"><span></span><span></span></div>
+                                </div>
+                                <div class="demo-format" aria-hidden="true">
+                                    <button class="demo-fmt-btn" type="button" tabindex="-1" title="highlight">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-9.5 9.5L7 20l-3-3 0.5-3.5L14 4z"/><line x1="13" y1="5" x2="19" y2="11"/><line x1="3" y1="22" x2="21" y2="22"/></svg>
+                                    </button>
+                                    <button class="demo-fmt-btn demo-fmt-bold" type="button" tabindex="-1" title="bold"><span style="font-weight:700">B</span></button>
+                                    <button class="demo-fmt-btn" type="button" tabindex="-1" title="italic"><span style="font-style:italic;font-weight:500">I</span></button>
+                                    <button class="demo-fmt-btn" type="button" tabindex="-1" title="underline"><span style="text-decoration:underline;font-weight:500">U</span></button>
+                                    <button class="demo-fmt-btn demo-fmt-undo" type="button" tabindex="-1" title="undo">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-4"/></svg>
+                                    </button>
+                                    <div class="demo-fmt-divider"></div>
+                                    <button class="demo-fmt-btn demo-fmt-note" type="button" tabindex="-1" title="add a sticky note">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v11l-5 5H4z"/><path d="M20 14h-6v6"/></svg>
+                                        <span class="demo-fmt-badge">+</span>
+                                    </button>
+                                    <button class="demo-fmt-btn" type="button" tabindex="-1" title="manage notes">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h12v9l-3 3H8z" opacity="0.5"/><path d="M5.5 6.5h11v8l-2.5 2.5h-8.5z" opacity="0.75"/><path d="M3 10h10v7l-2 2H3z"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <svg class="demo-cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2l6 15 2.5-6.2L18.5 8 4 2z" fill="#e8f0ea" stroke="#07271a" stroke-width="1.1" stroke-linejoin="round"/></svg>
                     </div>
                 </article>
 
@@ -160,10 +224,56 @@
                 <article class="feature" data-reveal>
                     <h2>Establish your own criteria for success</h2>
                     <p class="feature-desc">Click the checkmark to conclude the interaction when you feel satisfied with your progress.</p>
-                    <div class="media-placeholder" role="img" aria-label="Demo: clicking the checkmark to open the takeaways pop-up">
-                        <svg class="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
-                        <span class="media-label">Demo — concluding into the takeaways pop-up</span>
-                        <span class="media-note">Recording coming soon</span>
+                    <!-- Interactive demo: a faithful mock of a Scaffold session. A demo
+                         cursor moves to the wrap-up checkmark, "clicks" it to open the
+                         end-session confirmation, then "clicks" Yes, end session — and
+                         loops. Colours/proportions mirror App.tsx (PromptInput, the
+                         checkmark button, EndSessionConfirm, MessageCard). Driven by
+                         initConcludeDemo() in js/main.js. -->
+                    <div class="demo demo-conclude" data-demo="conclude"
+                         role="group" aria-label="Interactive demo: clicking the checkmark to end a Scaffold session">
+                        <div class="demo-app">
+                            <p class="demo-disclaimer">Scaffold is designed to support your critical thinking by asking questions. Consult additional resources for factual answers.</p>
+                            <div class="demo-top">
+                                <div class="demo-input">
+                                    <span class="demo-input-ph">What do you think?</span>
+                                    <button class="demo-arrow" type="button" tabindex="-1" aria-hidden="true">→</button>
+                                </div>
+                                <div class="demo-check-wrap">
+                                    <button class="demo-check" type="button" tabindex="-1" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg>
+                                    </button>
+                                    <div class="demo-popover" aria-hidden="true">
+                                        <h3>Are you sure you want to end your session with Scaffold?</h3>
+                                        <div class="demo-popover-actions">
+                                            <button class="demo-cancel" type="button" tabindex="-1">Cancel</button>
+                                            <button class="demo-end" type="button" tabindex="-1">Yes, end session</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="demo-thread">
+                                <div class="demo-row">
+                                    <div class="demo-card assistant">
+                                        <p>You seem to have worked through a clear explanation for what the closeness reveals. Are you satisfied with your thinking on this, or is there another aspect you'd like to explore further?</p>
+                                    </div>
+                                    <span class="demo-target" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><line x1="12" y1="1.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22.5" y2="12"/></svg>
+                                    </span>
+                                </div>
+                                <div class="demo-connector" aria-hidden="true"><span></span><span></span></div>
+                                <div class="demo-row">
+                                    <div class="demo-card user">
+                                        <p>Yes, that framing captures my original inquiry.</p>
+                                    </div>
+                                    <span class="demo-target" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><line x1="12" y1="1.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22.5" y2="12"/></svg>
+                                    </span>
+                                </div>
+                                <div class="demo-connector" aria-hidden="true"><span></span><span></span></div>
+                            </div>
+                        </div>
+                        <svg class="demo-cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2l6 15 2.5-6.2L18.5 8 4 2z" fill="#e8f0ea" stroke="#07271a" stroke-width="1.1" stroke-linejoin="round"/></svg>
                     </div>
                 </article>
 
@@ -171,10 +281,42 @@
                 <article class="feature" data-reveal>
                     <h2>Reflect on your progress</h2>
                     <p class="feature-desc">At the end, take time to reflect on what you’ve uncovered during your session.</p>
-                    <div class="media-placeholder" role="img" aria-label="Demo: typing takeaways into the pop-up">
-                        <svg class="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
-                        <span class="media-label">Demo — writing takeaways in the pop-up</span>
-                        <span class="media-note">Recording coming soon</span>
+                    <!-- Interactive demo: the frozen "interaction completed" card
+                         (App.tsx KeyTakeawaysCard). A demo cursor clicks "+ Add
+                         takeaway", a field drops in, and a takeaway auto-types into
+                         it — then it loops. The completed-on timestamp is filled with
+                         the current date/time. Driven by initReflectDemo() in main.js. -->
+                    <div class="demo demo-reflect" data-demo="reflect"
+                         data-takeaway="Birthright citizenship is intimately related to electoral mathematics"
+                         role="group" aria-label="Interactive demo: adding a takeaway after a completed Scaffold interaction">
+                        <div class="demo-app">
+                            <div class="demo-takeaways">
+                                <div class="demo-tk-header">Interaction completed on <span class="demo-tk-when"></span></div>
+                                <div class="demo-tk-list">
+                                    <div class="demo-tk-row">
+                                        <div class="demo-tk-field">
+                                            <span class="demo-tk-ph">Takeaway 1</span>
+                                            <span class="demo-tk-typed" aria-live="polite"></span><span class="demo-tk-caret" aria-hidden="true"></span>
+                                        </div>
+                                        <button class="demo-tk-remove" type="button" tabindex="-1" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="demo-tk-actions">
+                                    <button class="demo-tk-add" type="button" tabindex="-1">+ Add takeaway</button>
+                                    <button class="demo-tk-continue" type="button" tabindex="-1">Continue interaction</button>
+                                </div>
+                            </div>
+                            <div class="demo-connector" aria-hidden="true"><span></span><span></span></div>
+                            <div class="demo-row">
+                                <div class="demo-card assistant">
+                                    <p>You seem to have worked through a clear explanation for what the closeness reveals. Are you satisfied with your thinking on this, or is there another aspect of the vote's closeness you'd like to explore further?</p>
+                                </div>
+                            </div>
+                            <div class="demo-connector" aria-hidden="true"><span></span><span></span></div>
+                        </div>
+                        <svg class="demo-cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2l6 15 2.5-6.2L18.5 8 4 2z" fill="#e8f0ea" stroke="#07271a" stroke-width="1.1" stroke-linejoin="round"/></svg>
                     </div>
                 </article>
 
@@ -182,10 +324,86 @@
                 <article class="feature" data-reveal>
                     <h2>Save and export for future reference</h2>
                     <p class="feature-desc">Export the interaction, either as an HTML or Text file, to look back on your thought process later on.</p>
-                    <div class="media-placeholder" role="img" aria-label="Demo: exporting the interaction">
-                        <svg class="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
-                        <span class="media-label">Demo — exporting the interaction</span>
-                        <span class="media-note">Recording coming soon</span>
+                    <!-- Interactive demo: a wider mock of the full app window — header
+                         (SCAFFOLD, title, Export chat…) and format sidebar included. A
+                         demo cursor clicks "Export chat" to open the file-type menu,
+                         then clicks "Text file". Faithful to App.tsx (header actions,
+                         export menu, FormatSidebar). Driven by initExportDemo(). -->
+                    <div class="demo demo-export" data-demo="export"
+                         role="group" aria-label="Interactive demo: exporting an interaction as a text file">
+                        <div class="demo-window">
+                            <header class="demo-header">
+                                <div class="demo-hd-left">
+                                    <span class="demo-hd-logo">SCAFFOLD</span>
+                                    <img class="demo-hd-mark" src="assets/scaffold-mark.svg" width="34" height="34" alt="" />
+                                </div>
+                                <div class="demo-hd-title">Birthright Citizenship</div>
+                                <div class="demo-hd-actions">
+                                    <button class="demo-hd-btn" type="button" tabindex="-1">+ New</button>
+                                    <button class="demo-hd-btn demo-hd-q" type="button" tabindex="-1">?</button>
+                                    <div class="demo-export-wrap">
+                                        <button class="demo-export-btn demo-hd-btn" type="button" tabindex="-1">Export chat</button>
+                                        <div class="demo-export-menu">
+                                            <button class="demo-ex-item demo-ex-html" type="button" tabindex="-1">HTML file</button>
+                                            <button class="demo-ex-item demo-ex-text" type="button" tabindex="-1">Text file</button>
+                                        </div>
+                                    </div>
+                                    <button class="demo-hd-btn" type="button" tabindex="-1">Give feedback</button>
+                                    <button class="demo-hd-btn" type="button" tabindex="-1">Sign out</button>
+                                </div>
+                            </header>
+                            <div class="demo-body">
+                                <div class="demo-canvas">
+                                    <div class="demo-takeaways">
+                                        <div class="demo-tk-header">Interaction completed on <span class="demo-tk-when"></span></div>
+                                        <div class="demo-tk-list">
+                                            <div class="demo-tk-row">
+                                                <div class="demo-tk-field">
+                                                    <span class="demo-tk-typed">Birthright citizenship is intimately related to electoral mathematics</span>
+                                                </div>
+                                                <button class="demo-tk-remove" type="button" tabindex="-1" aria-hidden="true">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="demo-tk-actions">
+                                            <button class="demo-tk-add" type="button" tabindex="-1">+ Add takeaway</button>
+                                            <button class="demo-tk-continue" type="button" tabindex="-1">Continue interaction</button>
+                                        </div>
+                                    </div>
+                                    <div class="demo-connector" aria-hidden="true"><span></span><span></span></div>
+                                    <div class="demo-row">
+                                        <div class="demo-card assistant">
+                                            <p>You seem to have worked through a clear explanation for what the closeness reveals. Are you satisfied with your thinking on this, or is there another aspect of the vote's closeness you'd like to explore further?</p>
+                                        </div>
+                                        <span class="demo-target" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><line x1="12" y1="1.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22.5" y2="12"/></svg>
+                                        </span>
+                                    </div>
+                                    <div class="demo-connector" aria-hidden="true"><span></span><span></span></div>
+                                </div>
+                                <div class="demo-format" aria-hidden="true">
+                                    <button class="demo-fmt-btn" type="button" tabindex="-1" title="highlight">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-9.5 9.5L7 20l-3-3 0.5-3.5L14 4z"/><line x1="13" y1="5" x2="19" y2="11"/><line x1="3" y1="22" x2="21" y2="22"/></svg>
+                                    </button>
+                                    <button class="demo-fmt-btn" type="button" tabindex="-1" title="bold"><span style="font-weight:700">B</span></button>
+                                    <button class="demo-fmt-btn" type="button" tabindex="-1" title="italic"><span style="font-style:italic;font-weight:500">I</span></button>
+                                    <button class="demo-fmt-btn" type="button" tabindex="-1" title="underline"><span style="text-decoration:underline;font-weight:500">U</span></button>
+                                    <button class="demo-fmt-btn demo-fmt-undo" type="button" tabindex="-1" title="undo">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-4"/></svg>
+                                    </button>
+                                    <div class="demo-fmt-divider"></div>
+                                    <button class="demo-fmt-btn demo-fmt-note" type="button" tabindex="-1" title="add a sticky note">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v11l-5 5H4z"/><path d="M20 14h-6v6"/></svg>
+                                        <span class="demo-fmt-badge">+</span>
+                                    </button>
+                                    <button class="demo-fmt-btn" type="button" tabindex="-1" title="manage notes">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h12v9l-3 3H8z" opacity="0.5"/><path d="M5.5 6.5h11v8l-2.5 2.5h-8.5z" opacity="0.75"/><path d="M3 10h10v7l-2 2H3z"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <svg class="demo-cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2l6 15 2.5-6.2L18.5 8 4 2z" fill="#e8f0ea" stroke="#07271a" stroke-width="1.1" stroke-linejoin="round"/></svg>
                     </div>
                 </article>
             </div>

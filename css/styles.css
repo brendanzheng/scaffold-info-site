@@ -406,6 +406,9 @@ p  { margin: 0 0 1rem; }
 .demo {
     max-width: 720px;
     margin: 0 auto;
+    /* Positioning context for the absolutely-positioned demo cursor, so it
+       anchors to the demo root rather than a distant ancestor. */
+    position: relative;
 }
 
 /* 1 · Set your own agenda — a mock of the app's opening screen:
@@ -430,7 +433,7 @@ p  { margin: 0 0 1rem; }
 
 .demo-agenda .demo-chatbox {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
     width: 100%;
     max-width: 560px;
@@ -502,6 +505,507 @@ p  { margin: 0 0 1rem; }
 
 @media (prefers-reduced-motion: reduce) {
     .demo-caret { display: none; }
+}
+
+/* 3 · Establish your own criteria for success — a mock of a live session:
+   the top prompt bar with the wrap-up checkmark in the right gutter, two
+   message cards below, and a demo cursor that clicks the checkmark, opens the
+   end-session confirmation, then clicks "Yes, end session". */
+.demo-conclude { position: relative; }
+.demo-app {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2.4vw, 22px);
+    /* No bottom padding: the trailing connector runs to the window's edge, so
+       the thread reads as continuing past the frame (there's more, unshown). */
+    padding: clamp(20px, 4vw, 34px) clamp(18px, 3.5vw, 32px) 0;
+    background: var(--bg);                    /* GN.bg — the app canvas */
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;                         /* clip the trailing poles at the edge */
+    text-align: left;                         /* override .feature's centering */
+}
+.demo-disclaimer {
+    margin: 0;
+    font-size: clamp(7.5px, 1.4vw, 10px);
+    line-height: 1.35;
+    color: rgba(232, 240, 234, 0.35);        /* GN.inkFaint */
+    text-align: center;
+    white-space: nowrap;                     /* keep it to a single line */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Prompt bar + checkmark share a row; the checkmark is centred beside it. */
+.demo-top { display: flex; align-items: center; gap: 12px; }
+.demo-input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #3d5c48;                       /* GN.cardBg */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: clamp(11px, 1.8vw, 15px) clamp(14px, 2.4vw, 22px);
+}
+.demo-input-ph {
+    flex: 1;
+    font-size: clamp(13px, 1.9vw, 15px);
+    color: rgba(232, 240, 234, 0.35);        /* GN.inkFaint — placeholder */
+}
+.demo-arrow {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: var(--font);
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+    color: rgba(232, 240, 234, 0.35);        /* GN.inkFaint — disabled send */
+}
+
+/* Wrap-up checkmark — a 40px outlined circle, faithful to the app button. */
+.demo-check-wrap { position: relative; flex-shrink: 0; }
+.demo-check {
+    width: clamp(36px, 5.4vw, 42px);
+    height: clamp(36px, 5.4vw, 42px);
+    border-radius: 50%;
+    border: 1.8px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+    transition: background 0.15s ease, transform 0.12s ease;
+}
+.demo-check svg { width: 60%; height: 60%; }
+.demo-conclude.is-hover-check .demo-check { background: rgba(255, 255, 255, 0.06); }
+.demo-conclude.is-press-check .demo-check { transform: scale(0.9); background: rgba(255, 255, 255, 0.12); }
+
+/* End-session confirmation — drops down from the checkmark, aligned to its
+   right edge (App.tsx EndSessionConfirm). Hidden until the checkmark is clicked. */
+.demo-popover {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: clamp(210px, 30vw, 250px);
+    background: var(--bg);                     /* GN.bg */
+    border: 1.5px solid var(--ink);
+    border-radius: 14px;
+    padding: 16px 18px 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    z-index: 5;
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+    transform-origin: top right;
+    pointer-events: none;
+    transition: opacity 0.16s ease, transform 0.16s ease;
+}
+.demo-conclude.is-open .demo-popover { opacity: 1; transform: none; }
+.demo-popover h3 {
+    margin: 0 0 14px;
+    font-size: clamp(12px, 1.9vw, 14px);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--ink);
+}
+.demo-popover-actions {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.demo-cancel {
+    background: transparent; border: none; padding: 0;
+    font-family: var(--font); font-size: clamp(11px, 1.6vw, 12px);
+    color: rgba(232, 240, 234, 0.6);          /* GN.inkDim */
+    text-decoration: underline;
+}
+.demo-end {
+    flex-shrink: 0;
+    background: transparent; border: 1px solid var(--ink);
+    color: var(--ink);
+    font-family: var(--font); font-size: clamp(11px, 1.6vw, 12px);
+    padding: 6px 11px; border-radius: 6px; white-space: nowrap;
+    transition: background 0.15s ease, transform 0.12s ease;
+}
+.demo-conclude.is-hover-end .demo-end { background: rgba(255, 255, 255, 0.06); }
+.demo-conclude.is-press-end .demo-end { transform: scale(0.94); background: rgba(255, 255, 255, 0.14); }
+
+/* Message thread — cards with a crosshair in the right gutter and vertical
+   connector poles between them (App.tsx MessageCard / connectors). */
+.demo-thread { display: flex; flex-direction: column; }
+.demo-row { display: flex; align-items: center; gap: 12px; }
+.demo-card {
+    flex: 1;
+    border-radius: 8px;
+    padding: clamp(12px, 2vw, 16px) clamp(14px, 2.4vw, 22px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.demo-card.assistant { background: #133622; }  /* GN.cardBgAssistant */
+.demo-card.user      { background: #3d5c48; }  /* GN.cardBg */
+.demo-card p {
+    margin: 0;
+    font-size: clamp(12px, 1.9vw, 14.5px);
+    line-height: 1.5;
+    color: var(--ink);
+}
+.demo-target {
+    flex-shrink: 0;
+    width: clamp(36px, 5.4vw, 42px);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink);
+    opacity: 0.28;
+}
+.demo-target svg { width: 20px; height: 20px; }
+/* Connector poles, echoing the 22% / 78% verticals between cards. The
+   right margin matches the card gutter (gap + crosshair) so the poles align
+   under the card column, not the full row. */
+.demo-connector {
+    position: relative;
+    height: clamp(20px, 3.4vw, 30px);
+    margin-right: calc(clamp(36px, 5.4vw, 42px) + 12px);
+}
+.demo-connector span {
+    position: absolute; top: 0; bottom: 0; width: 4px; border-radius: 2px;
+    background: rgba(200, 210, 200, 0.45);    /* GN.connector */
+}
+.demo-connector span:first-child { left: 22%; }
+.demo-connector span:last-child  { left: 78%; }
+
+/* When the session ends, the thread softens back and the checkmark fills in. */
+.demo-conclude.is-ended .demo-thread,
+.demo-conclude.is-ended .demo-top { opacity: 0.5; transition: opacity 0.4s ease; }
+.demo-conclude.is-ended .demo-check {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #07271a;
+}
+
+/* Demo cursor — hidden until the sequence runs; glides between targets. */
+.demo-cursor {
+    position: absolute;
+    top: 0; left: 0;
+    width: 22px; height: 22px;
+    opacity: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+    transform: translate(var(--cx, 0), var(--cy, 0));
+    transition: transform 0.7s cubic-bezier(0.5, 0, 0.2, 1), opacity 0.3s ease;
+    /* Above every demo overlay (export menu z-30, end-session popover) so the
+       cursor stays visible when it moves onto them. */
+    z-index: 100;
+}
+.demo.is-running .demo-cursor { opacity: 1; }
+
+/* 4 · Reflect on your progress — the frozen "interaction completed" card
+   (App.tsx KeyTakeawaysCard). The cursor clicks "+ Add takeaway", a field
+   drops in, and a takeaway auto-types into it. The interaction continues
+   below, connectors running off the bottom edge. */
+/* Panels and connectors butt directly together (no inter-child gap), so the
+   poles run flush out of one panel and into the next — as in the app. */
+.demo-reflect .demo-app { gap: 0; }
+/* No crosshair gutter here — the message card spans the full width like the
+   takeaways panel, so the connectors span full width too. */
+.demo-reflect .demo-connector { margin-right: 0; }
+.demo-takeaways {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 2vw, 16px);
+    background: #3d5c48;                       /* GN.cardBg */
+    border: 1.8px solid var(--ink);
+    border-radius: 10px;
+    padding: clamp(16px, 2.6vw, 22px) clamp(18px, 3vw, 26px);
+    color: var(--ink);
+}
+.demo-tk-header {
+    text-align: center;
+    font-size: clamp(12.5px, 2vw, 15px);
+    font-style: italic;
+    color: var(--ink);
+}
+
+/* The takeaway field only exists once "+ Add takeaway" is clicked. */
+.demo-tk-list { display: none; }
+.demo-reflect.is-adding .demo-tk-list { display: block; }
+@keyframes tkIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.demo-reflect.is-adding .demo-tk-row { animation: tkIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.demo-tk-row { display: flex; align-items: center; gap: 12px; }
+.demo-tk-field {
+    position: relative;
+    flex: 1;
+    min-height: 1.5em;
+    border: 1px solid rgba(255, 255, 255, 0.18);  /* GN.borderLatest */
+    border-radius: 10px;
+    padding: clamp(9px, 1.6vw, 12px) clamp(12px, 2vw, 16px);
+    font-size: clamp(12.5px, 1.9vw, 15px);
+    line-height: 1.5;
+    color: var(--ink);
+    text-align: left;                             /* override .feature centering */
+    overflow-wrap: anywhere;
+}
+.demo-tk-ph {
+    position: absolute;
+    inset: clamp(9px, 1.6vw, 12px) clamp(12px, 2vw, 16px);
+    font-style: italic;
+    color: rgba(232, 240, 234, 0.35);            /* GN.inkFaint */
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+.demo-reflect.tk-has-text .demo-tk-ph { opacity: 0; }
+.demo-tk-caret {
+    display: inline-block;
+    width: 2px; height: 1.15em;
+    vertical-align: text-bottom; margin-bottom: 1px;
+    background: var(--accent);                    /* GN.accent — caretColor */
+    opacity: 0;
+}
+.demo-reflect.tk-typing .demo-tk-caret { opacity: 1; }
+.demo-reflect.tk-idle .demo-tk-caret { animation: demoCaretBlink 1.05s step-end infinite; }
+.demo-tk-remove {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border: none; background: transparent;
+    color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+}
+.demo-tk-remove svg { width: 16px; height: 16px; }
+
+/* Action row — "+ Add takeaway" (underlined) and "Continue interaction". */
+.demo-tk-actions {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.demo-tk-add {
+    background: transparent; border: none; padding: 0;
+    font-family: var(--font); font-size: clamp(12px, 1.8vw, 14px);
+    color: var(--ink); text-decoration: underline;
+    transition: opacity 0.12s ease;
+}
+.demo-reflect.is-press-add .demo-tk-add { opacity: 0.5; }
+.demo-tk-continue {
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.18);   /* GN.borderLatest */
+    color: var(--ink);
+    font-family: var(--font); font-size: clamp(12px, 1.8vw, 14px);
+    padding: 7px 16px; border-radius: 6px; white-space: nowrap;
+}
+
+/* 5 · Save and export for future reference — a wider mock of the whole app
+   window (header + canvas + format sidebar). The cursor clicks "Export chat",
+   the file-type menu opens, then it clicks "Text file". Mirrors App.tsx's
+   header actions, export menu, and FormatSidebar. */
+.demo-export {
+    max-width: 100%;
+    /* Shared layout metrics — the sidebar width and the canvas gutters. Kept in
+       one place so the header title can be centred over the takeaways panel. */
+    --fmt-w: clamp(44px, 5vw, 60px);
+    --canvas-pl: clamp(16px, 3vw, 40px);
+    --canvas-pr: clamp(56px, 6.5vw, 74px);
+}
+.demo-window {
+    background: var(--bg);                     /* GN.bg */
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+/* Header — logo (left) and actions (right); the title is absolutely centred
+   over the takeaways panel below (not the whole bar). */
+.demo-header {
+    position: relative;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: clamp(12px, 1.8vw, 20px);
+    min-height: 48px;
+    padding: 7px clamp(12px, 2vw, 24px);
+    border-bottom: 1px solid var(--border);
+    background: rgba(7, 38, 22, 0.97);
+}
+.demo-hd-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.demo-hd-logo {
+    font-size: clamp(13px, 1.9vw, 21px);
+    font-weight: 600; letter-spacing: 0.12em; color: var(--ink);
+    white-space: nowrap;
+}
+.demo-hd-mark { width: clamp(22px, 3vw, 34px); height: auto; flex-shrink: 0; }
+.demo-hd-title {
+    position: absolute;
+    top: 50%;
+    /* Centre over the takeaways panel (the canvas centre), not the window
+       centre: shift left by half of (sidebar + right gutter − left gutter). */
+    left: calc(50% + (var(--canvas-pl) - var(--fmt-w) - var(--canvas-pr)) / 2);
+    transform: translate(-50%, -50%);
+    max-width: min(30vw, 220px);
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 12px;
+    color: var(--ink);
+    font-size: clamp(11px, 1.5vw, 14px); letter-spacing: 0.02em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.demo-hd-actions {
+    display: flex; align-items: center; gap: clamp(4px, 0.7vw, 8px);
+    min-width: 0;
+}
+.demo-hd-btn {
+    height: 22px; padding: 0 8px; border-radius: 3px;
+    border: 1px solid var(--border); background: transparent;
+    color: rgba(232, 240, 234, 0.6);          /* GN.inkDim */
+    font-family: var(--font);
+    font-size: clamp(8px, 1vw, 10px); letter-spacing: 0.08em;
+    white-space: nowrap; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    line-height: 1;
+}
+.demo-hd-q {
+    width: 22px; padding: 0; border-radius: 50%;
+    font-size: 11px; font-weight: 600;
+}
+
+/* Export-chat button + dropdown menu. The wrap is a flex box so its button
+   aligns with the sibling header buttons (not offset by inline baseline). */
+.demo-export-wrap { position: relative; flex-shrink: 0; display: flex; align-items: center; }
+.demo-export.is-press-export .demo-export-btn,
+.demo-export.is-menu-open .demo-export-btn { color: var(--ink); background: rgba(255, 255, 255, 0.04); }
+.demo-export-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    z-index: 30;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px;
+    display: flex; flex-direction: column;
+    min-width: 120px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+    transform-origin: top right;
+    pointer-events: none;
+    transition: opacity 0.16s ease, transform 0.16s ease;
+}
+.demo-export.is-menu-open .demo-export-menu { opacity: 1; transform: none; }
+.demo-ex-item {
+    background: transparent; border: none;
+    color: var(--ink); font-family: var(--font);
+    font-size: clamp(9.5px, 1.2vw, 11px); letter-spacing: 0.06em;
+    padding: 8px 10px; border-radius: 4px; text-align: left; white-space: nowrap;
+}
+.demo-export.is-hover-text .demo-ex-text { background: rgba(255, 255, 255, 0.06); }
+.demo-export.is-press-text .demo-ex-text { background: rgba(255, 255, 255, 0.12); }
+
+/* Body — canvas (left) + format sidebar (right). */
+.demo-body { display: flex; flex-direction: row; align-items: stretch; }
+.demo-export .demo-canvas {
+    flex: 1; min-width: 0;
+    /* Wide right gutter: both panels stop at the content box (so their right
+       edges align), and the message card's crosshair floats in the gutter —
+       adding space between the panels and the format buttons. */
+    padding: clamp(16px, 2.5vw, 28px) var(--canvas-pr) 0 var(--canvas-pl);
+    display: flex; flex-direction: column; gap: 0;
+    overflow: hidden;                          /* clip the trailing connectors */
+}
+.demo-export .demo-tk-list { display: block; }
+/* Both panels span the full content width, so connectors span it too. */
+.demo-export .demo-connector { margin-right: 0; }
+/* The trailing connector grows to fill any leftover canvas height (e.g. when
+   the format sidebar is taller), so its poles always run to the window's
+   bottom edge and are clipped there — the thread reads as continuing. */
+.demo-export .demo-canvas > .demo-connector:last-child { flex: 1 1 auto; }
+/* The crosshair floats in the right gutter instead of taking a flex column,
+   so the message card stays full width and aligns with the takeaways panel. */
+.demo-export .demo-row { position: relative; }
+.demo-export .demo-target {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 16px);
+    transform: translateY(-50%);
+}
+
+/* Format sidebar — 60px rail of formatting tools. */
+.demo-format {
+    width: var(--fmt-w);
+    flex-shrink: 0;
+    display: flex; flex-direction: column; align-items: stretch; gap: 8px;
+    padding: 16px 8px;
+    border-left: 1px solid var(--border);
+}
+.demo-fmt-btn {
+    position: relative;
+    background: transparent; border: none;
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: clamp(15px, 2vw, 22px);
+    height: clamp(32px, 4vw, 44px);
+    padding: 0; line-height: 1;
+    opacity: 0.85;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 6px;
+}
+.demo-fmt-undo { opacity: 0.3; }               /* nothing to undo → dimmed */
+.demo-fmt-btn svg { width: clamp(16px, 2.2vw, 22px); height: clamp(16px, 2.2vw, 22px); }
+.demo-fmt-divider { height: 1px; background: var(--border); margin: 4px 6px; }
+.demo-fmt-badge {
+    position: absolute; right: 8px; bottom: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--bg); color: var(--ink);
+    font-size: 11px; line-height: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* 2 · Remember kernels of insight — a mock session with the format sidebar.
+   The cursor drags to select a sentence, then clicks Bold (B) and the sentence
+   turns bold. Reuses the window / canvas / format-sidebar pieces. */
+.demo-highlight {
+    max-width: 100%;                           /* full width like the export demo */
+    --fmt-w: clamp(44px, 5vw, 60px);
+    --canvas-pl: clamp(16px, 3vw, 40px);
+    /* Smaller right gutter than the export demo — the crosshair/checkmark float
+       here and the format bar sits close — but with a touch of breathing room so
+       the checkmark doesn't crowd the formatting bar. */
+    --canvas-pr: clamp(62px, 6.4vw, 76px);
+}
+.demo-highlight .demo-canvas {
+    flex: 1; min-width: 0;
+    padding: clamp(16px, 2.5vw, 26px) var(--canvas-pr) 0 var(--canvas-pl);
+    display: flex; flex-direction: column; gap: 0;
+    overflow: hidden;                          /* clip the trailing connectors */
+    text-align: left;                          /* override .feature's centering */
+}
+/* Disclaimer and input row get breathing room; cards/connectors stay flush. */
+.demo-highlight .demo-disclaimer { margin-bottom: clamp(14px, 2.2vw, 22px); }
+.demo-highlight .demo-input-row  { margin-bottom: clamp(20px, 3vw, 32px); }
+/* Panels span the full content width; crosshair + checkmark float in the gutter. */
+.demo-highlight .demo-connector { margin-right: 0; }
+.demo-highlight .demo-canvas > .demo-connector:last-child { flex: 1 1 auto; }
+.demo-highlight .demo-row { position: relative; }
+.demo-highlight .demo-target,
+.demo-highlight .demo-check {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 16px);
+    transform: translateY(-50%);
+}
+
+/* The sentence being selected + bolded. Selection tint and bold treatment
+   (weight 800, white) match App.tsx. */
+.demo-boldable { border-radius: 2px; transition: background 0.15s ease; }
+.demo-highlight.is-selecting .demo-boldable { background: rgba(142, 203, 164, 0.25); }
+.demo-highlight.is-bold .demo-boldable { font-weight: 800; color: #ffffff; }
+/* Bold tool press feedback. */
+.demo-highlight.is-press-bold .demo-fmt-bold { opacity: 1; background: rgba(255, 255, 255, 0.14); }
+
+@media (prefers-reduced-motion: reduce) {
+    .demo-cursor { display: none; }
+    .demo-caret, .demo-tk-caret { display: none; }
+    /* Show the end-session confirmation statically — the key UI, no motion. */
+    .demo-conclude .demo-popover { opacity: 1; transform: none; }
+    .demo-conclude .demo-check { background: rgba(255, 255, 255, 0.06); }
+    /* Show the export menu statically — the key UI, no motion. */
+    .demo-export .demo-export-menu { opacity: 1; transform: none; }
+    /* Show the sentence already bolded — the outcome, no motion. */
+    .demo-highlight.is-bold .demo-boldable,
+    .demo-highlight .demo-boldable { font-weight: 800; color: #ffffff; }
 }
 
 /* Photo placeholder */
