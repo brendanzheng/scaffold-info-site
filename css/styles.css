@@ -1095,7 +1095,6 @@ p  { margin: 0 0 1rem; }
 .faq-item[open] .faq-chevron { transform: rotate(-135deg); }
 .faq-answer {
     padding: 0 4px 24px;
-    max-width: 76ch;
 }
 .faq-answer p { margin: 0; color: var(--ink-dim); }
 .faq-answer .faq-todo { color: var(--ink-faint); font-style: italic; }
