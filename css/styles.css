@@ -67,7 +67,9 @@ p  { margin: 0 0 1rem; }
 .site-header {
     position: sticky;
     top: 0;
-    z-index: 100;
+    /* Above the demo cursor (z-index 100) so the sticky header covers it when
+       a demo scrolls up behind the bar. */
+    z-index: 200;
     background: rgba(7, 38, 22, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
