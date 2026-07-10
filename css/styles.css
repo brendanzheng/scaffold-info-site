@@ -130,6 +130,17 @@ p  { margin: 0 0 1rem; }
     border-radius: 2px;
 }
 
+/* Intermediate widths: above the mobile breakpoint the full horizontal nav
+   plus the Launch button would otherwise overflow and force horizontal
+   scroll, so tighten the links and button until they fit. */
+@media (min-width: 721px) and (max-width: 880px) {
+    .site-header .container { gap: 8px; }
+    .brand .wordmark { font-size: 1.02rem; letter-spacing: 0.06em; }
+    .nav { gap: 1px; }
+    .nav a { padding: 7px 8px; font-size: 0.78rem; }
+    .nav-launch.btn { margin-left: 4px; padding: 10px 14px; font-size: 0.82rem; }
+}
+
 /* Mobile menu toggle */
 .nav-toggle {
     margin-left: auto;
@@ -197,14 +208,9 @@ p  { margin: 0 0 1rem; }
 }
 .btn-ghost:hover { background: rgba(255, 255, 255, 0.05); border-color: var(--accent-dim); }
 
-/* Compact Launch CTA that lives in the header nav (non-home pages), sized to
-   the bar rather than the large hero button. Sits to the right of Resources. */
-.nav-launch.btn {
-    margin-left: 6px;
-    padding: 8px 18px;
-    font-size: 0.9rem;
-    border-radius: 8px;
-}
+/* Launch CTA in the header nav (non-home pages), styled like the hero's
+   "Launch Scaffold" button. Sits to the right of Resources. */
+.nav-launch.btn { margin-left: 8px; }
 
 /* ── Sections ────────────────────────────────────────────────────────────── */
 .section { padding: clamp(56px, 9vw, 104px) 0; }
