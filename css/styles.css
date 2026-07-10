@@ -348,7 +348,11 @@ p  { margin: 0 0 1rem; }
 .prose h2 { margin-top: 2em; }
 .prose h2:first-child { margin-top: 0; }
 .prose p { color: var(--ink-dim); }
+.prose p, .prose li { line-height: 1.8; }
 .prose strong { color: var(--ink); font-weight: 600; }
+.prose ul { color: var(--ink-dim); margin: 0 0 1.4em; padding-left: 22px; display: flex; flex-direction: column; gap: 14px; }
+.prose a { color: var(--ink); text-decoration: underline; }
+.prose a:hover { color: var(--accent); }
 .pull {
     margin: 2em 0;
     padding: 20px 26px;
