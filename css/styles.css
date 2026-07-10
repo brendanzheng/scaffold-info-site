@@ -140,7 +140,7 @@ p  { margin: 0 0 1rem; }
     .nav a { padding: 6px 7px; font-size: 0.76rem; }
     /* .site-header prefix so this wins over the later .nav-launch.btn base rule. */
     .site-header .nav-launch.btn {
-        margin-left: 4px; padding: 9px 13px; font-size: 0.8rem; border-radius: 8px;
+        margin-left: 4px; padding: 5px 13px; font-size: 0.8rem; border-radius: 7px;
     }
 }
 
@@ -217,8 +217,10 @@ p  { margin: 0 0 1rem; }
    accent fill) with enough specificity to win. Sits right of Resources. */
 .nav-launch.btn {
     margin-left: 8px;
-    padding: 13px 24px;
-    border-radius: 10px;
+    /* Vertical padding trimmed so the pill height matches the nav links
+       (~40px), not the taller hero button. */
+    padding: 6px 22px;
+    border-radius: 9px;
     font-size: 0.98rem;
     font-weight: 600;
     letter-spacing: normal;
