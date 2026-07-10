@@ -315,14 +315,6 @@ p  { margin: 0 0 1rem; }
 .prose h2:first-child { margin-top: 0; }
 .prose p { color: var(--ink-dim); }
 .prose strong { color: var(--ink); font-weight: 600; }
-/* Bold, larger opening line (Philosophy page) */
-.statement {
-    font-weight: 700;
-    font-size: clamp(1.4rem, 3vw, 1.95rem);
-    line-height: 1.3;
-    color: var(--ink);
-    margin-bottom: 1.4em;
-}
 .pull {
     margin: 2em 0;
     padding: 20px 26px;
