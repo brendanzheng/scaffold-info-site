@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Scaffold</title>
+    <meta name="description" content="Privacy Policy for Scaffold — how your data is handled across Render, Anthropic, Google OAuth, and Supabase." />
+    <link rel="icon" type="image/svg+xml" href="assets/scaffold.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="index.html" aria-label="Scaffold home">
+                <span class="wordmark">SCAFFOLD</span>
+                <img class="brand-mark" src="assets/scaffold-mark.svg" width="34" height="34" alt="" />
+            </a>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </button>
+            <nav class="nav" id="nav">
+                <a href="index.html">Home</a>
+                <a href="philosophy.html">Philosophy</a>
+                <a href="about-us.html">About Us</a>
+                <a href="community.html">Community</a>
+                <a href="resources.html">Resources</a>
+                <a class="nav-launch btn btn-primary" href="https://scaffold-frontend.onrender.com">Launch Scaffold</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-sm" style="padding-top:clamp(48px,8vw,88px);">
+            <div class="container">
+                <div class="prose">
+                    <h1>Privacy Policy</h1>
+                    <p class="muted" style="margin-top:-0.6em;">Last updated: July 6, 2026</p>
+                    <p>Scaffold's data management practices are as follows:</p>
+                    <ul>
+                        <li>Scaffold's website is hosted on Render, using exclusively U.S. servers.</li>
+                        <li>Users' prompts and responses are funnelled through Anthropic, via Claude API. Per Anthropic's privacy policy, Anthropic will not use these inputs—nor the Claude/Anthropic-generated outputs—in model training (<a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" target="_blank" rel="noopener noreferrer">“Is my data used for model training?”</a>). However, Anthropic may store these inputs and outputs on their back-end for up to 30 days after receipt or generation and subject them to trust and safety screenings. If an interaction is found to violate Anthropic's Usage Policies, it may be stored beyond the 30-day period (<a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data" target="_blank" rel="noopener noreferrer">“How long do you store my organization's data?”</a>).</li>
+                        <li>User profile creation and log-in is managed by Google OAuth. Scaffold has access to users' email address, but not password.</li>
+                        <li>When users create a user profile, the information contained within their profile is stored on Supabase, in U.S. servers.</li>
+                        <li>Specifically, Supabase stores information on: user inputs, Scaffold outputs, interaction titles, interaction takeaways, interaction sticky notes, interaction timestamps, and organizational folders.</li>
+                        <li>If the user deletes an interaction, that interaction will be immediately and permanently removed from Supabase.</li>
+                        <li>Without explicit and verifiable permission from the user, Scaffold's founders, Brendan and Hillary, will not access any user information stored on Supabase.</li>
+                        <li>If users use Scaffold without creating a user profile, the information from the interaction is not saved in Supabase and is inaccessible to Brendan and Hillary. However, since the interaction is processed via Claude API, it would be subject to Anthropic's 30-day storage policy as described above.</li>
+                    </ul>
+                    <p>Except upon request for a legal process, Scaffold will not share any of the data that it collects with third-parties unrelated to the delivery of its services.</p>
+                    <p>The terms above may be subject to change. The last updated date will be indicated at the beginning of this policy.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <span>© <span id="year">2026</span> Scaffold</span>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="philosophy.html">Philosophy</a>
+                <a href="about-us.html">About Us</a>
+                <a href="community.html">Community</a>
+                <a href="resources.html">Resources</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
