@@ -1020,6 +1020,9 @@ p  { margin: 0 0 1rem; }
     font-size: clamp(1.9rem, 5vw, 3rem);
     margin: 0;
 }
+/* Body copy on the Philosophy / About Us / Community pages — a touch larger
+   and more open than the base paragraph so the long-form text reads easily. */
+.about-copy p, .bio p { font-size: 1.1rem; line-height: 1.8; }
 .about-copy p { margin-bottom: 1.4em; }
 .about-copy p:last-child { margin-bottom: 0; }
 .about-photo-centered { width: clamp(200px, 40%, 280px); margin: 30px auto 40px; }
