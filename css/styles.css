@@ -345,6 +345,10 @@ p  { margin: 0 0 1rem; }
 .features { padding-top: var(--flow-gap); }
 .features .container {
     display: grid;
+    /* minmax(0, 1fr) caps the track at the container width: without it the
+       auto track grows to the widest demo's min-content and overflows narrow
+       screens (horizontal scroll). The demos are fluid and self-clip within. */
+    grid-template-columns: minmax(0, 1fr);
     gap: clamp(24px, 4vw, 40px);
 }
 .feature {
