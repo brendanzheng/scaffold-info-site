@@ -833,13 +833,11 @@ p  { margin: 0 0 1rem; }
 }
 .demo-hd-mark { width: clamp(22px, 3vw, 34px); height: auto; flex-shrink: 0; }
 .demo-hd-title {
-    position: absolute;
-    top: 50%;
-    /* Centre over the takeaways panel (the canvas centre), not the window
-       centre: shift left by half of (sidebar + right gutter − left gutter). */
-    left: calc(50% + (var(--canvas-pl) - var(--fmt-w) - var(--canvas-pr)) / 2);
-    transform: translate(-50%, -50%);
-    max-width: min(30vw, 220px);
+    /* In-flow between the logo and actions so it can never overlap them; it
+       shrinks and ellipsizes when the header is tight rather than sitting on
+       top of its neighbours (which it did while absolutely positioned). */
+    flex: 0 1 auto;
+    min-width: 0;
     text-align: center;
     border: 1px solid var(--border);
     border-radius: 6px;
