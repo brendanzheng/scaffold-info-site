@@ -900,6 +900,7 @@ p  { margin: 0 0 1rem; }
     padding: clamp(16px, 2.5vw, 28px) var(--canvas-pr) 0 var(--canvas-pl);
     display: flex; flex-direction: column; gap: 0;
     overflow: hidden;                          /* clip the trailing connectors */
+    text-align: left;                          /* override .feature's centering */
 }
 .demo-export .demo-tk-list { display: block; }
 /* Both panels span the full content width, so connectors span it too. */
