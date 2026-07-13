@@ -10,3 +10,8 @@ Thumbs.db
 # Logs / misc
 *.log
 node_modules/
+
+# Photo source originals — kept locally; the optimized web JPEGs are committed
+pics/*.HEIC
+pics/Brendan.jpeg
+pics/Sophia Akhter.jpeg
