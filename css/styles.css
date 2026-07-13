@@ -1120,6 +1120,28 @@ img.about-photo {
         width: min(280px, 72%);
         margin: 0 auto 24px;
     }
+    /* The demo mocks are a "wider-than-phone" app window meant to self-clip via
+       overflow:hidden. But .feature is a grid item, and a grid item's default
+       min-width:auto lets it grow to its content's min-content — so the wide
+       demo blows the item past the minmax(0,1fr) track, overflowing the phone
+       and pushing the header's right side (Export chat) off-screen. min-width:0
+       lets the item honour the track so the demo clips internally as intended
+       and the top bar stays within the viewport. */
+    .features .feature { min-width: 0; }
+    /* Drop the document title on phones: it crowds the action row and adds
+       nothing on a phone-width mock. */
+    .demo-hd-title { display: none; }
+    /* In the narrow takeaways panel the side-by-side actions don't fit:
+       "+ Add takeaway" wraps to two lines and "Continue interaction" overflows
+       the panel into the format sidebar. Stack them so each sits on its own
+       line within the panel. */
+    .demo-tk-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .demo-tk-add { white-space: nowrap; text-align: left; }
+    .demo-tk-continue { align-self: flex-start; }
 }
 
 /* ── FAQ accordion ───────────────────────────────────────────────────────── */
