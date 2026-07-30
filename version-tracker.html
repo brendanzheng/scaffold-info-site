@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Resources — Scaffold</title>
-    <meta name="description" content="Get started with Scaffold, share feedback, and explore ideas about critical thinking and Socratic questioning." />
+    <title>Version Tracker — Scaffold</title>
+    <meta name="description" content="A running log of the changes we make to Scaffold — the system prompt, the interface, and bug fixes — dated by release." />
     <link rel="icon" type="image/svg+xml" href="assets/scaffold.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,31 +35,37 @@
     <main>
         <section class="section-sm" style="padding-top:clamp(48px,8vw,88px);">
             <div class="container">
-                <div class="res-topbar">
-                    <h1 class="about-title">Resources</h1>
-                    <a class="btn btn-ghost res-topbar-action" href="version-tracker.html">Version Tracker</a>
-                </div>
+                <h1 class="about-title">Version Tracker</h1>
 
-                <!-- Starred: the pieces we most want readers to start with. -->
-                <div class="res-group">
-                    <p class="res-group-label">Starred</p>
-                    <div class="res-list">
-                        <a class="res-item" href="starting-points.html">
-                            <img class="res-thumb" src="pics/starting-points.png" alt="" loading="lazy" />
-                            <div class="res-item-body">
-                                <h2>Example Starting Points</h2>
-                                <p>One of the most common questions we get about Scaffold is, What should I interact with it about?</p>
+                <!-- One <details> per release date, newest first. Native accordion —
+                     no JS needed. Add new dates above the existing ones. -->
+                <div class="vt-list">
+                    <details class="vt-item" open>
+                        <summary>July 29, 2026<span class="faq-chevron" aria-hidden="true"></span></summary>
+                        <div class="vt-body">
+                            <div class="vt-group">
+                                <h3>System Prompt</h3>
+                                <ul>
+                                    <li>Information about context window/summarization function added directly into the system prompt, so the summary is clearly identified as a summary of x previous interactions</li>
+                                    <li>Instructions to annotate sources for points in the summary, e.g., identifying that a given point is derived from user input 2</li>
+                                </ul>
                             </div>
-                        </a>
-                    </div>
-                </div>
-
-                <hr class="section-divider" style="margin-top:var(--flow-gap);" />
-
-                <!-- Latest: newest writing, once there is more than the starred piece. -->
-                <div class="res-group">
-                    <p class="res-group-label">Latest</p>
-                    <p class="res-empty">Coming soon.</p>
+                            <div class="vt-group">
+                                <h3>Interface</h3>
+                                <ul>
+                                    <li>Web interface optimized for mobile experience</li>
+                                    <li>Clarification added about the average interaction lasting 20 user inputs</li>
+                                    <li>New feature enabling "jump to the bottom" after the user has concluded their interaction</li>
+                                </ul>
+                            </div>
+                            <div class="vt-group">
+                                <h3>Bug Fixes</h3>
+                                <ul>
+                                    <li>Problem exiting the features walkthrough</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
