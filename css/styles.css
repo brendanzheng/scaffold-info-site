@@ -271,6 +271,15 @@ p  { margin: 0 0 1rem; }
     justify-content: center;
     margin-top: 36px;
 }
+/* Divider + header introducing the feature demos below. The divider's own rule
+   only sets space beneath the line, so add the matching space above it here. */
+.hero .section-divider { margin-top: var(--flow-gap); }
+.demos-head {
+    max-width: 46ch;
+    margin: 0 auto;
+    text-align: center;
+    font-size: clamp(1.35rem, 3.6vw, 2.35rem);
+}
 
 /* ── Cards / grids ───────────────────────────────────────────────────────── */
 .grid {
