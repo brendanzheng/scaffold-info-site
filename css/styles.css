@@ -1192,15 +1192,8 @@ img.about-photo {
     padding: 0 4px 24px;
 }
 .faq-answer p { margin: 0; color: var(--ink-dim); }
-.faq-answer .faq-image {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    margin-top: 16px;
-}
+/* Multi-paragraph answers: space between paragraphs, none around the block. */
+.faq-answer p + p { margin-top: 1em; }
 .faq-answer .faq-todo { color: var(--ink-faint); font-style: italic; }
 
 /* ── Scroll-reveal / entrance animations ─────────────────────────────────────
