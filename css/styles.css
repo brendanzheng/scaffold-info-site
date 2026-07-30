@@ -211,6 +211,12 @@ p  { margin: 0 0 1rem; }
     color: var(--ink);
 }
 .btn-ghost:hover { background: rgba(255, 255, 255, 0.05); border-color: var(--accent-dim); }
+/* Larger tap target for a page's primary call to action. */
+.btn-lg {
+    padding: 17px 40px;
+    font-size: clamp(1.02rem, 1.7vw, 1.18rem);
+    border-radius: 12px;
+}
 
 /* Launch CTA in the header nav (non-home pages), styled like the hero's
    "Launch Scaffold" button. The .nav a rules are more specific than
@@ -267,12 +273,14 @@ p  { margin: 0 0 1rem; }
     font-size: clamp(1.1rem, 4.6vw, 3rem);   /* scale with width so it never overflows */
 }
 .hero .lead { margin: 18px auto 0; text-align: center; }
+/* The CTA sits directly under the headline, above the intro copy, so it needs
+   space on both sides — the leads add their own 18px on top of the lower gap. */
 .hero .cta-row {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
     justify-content: center;
-    margin-top: 36px;
+    margin: 30px 0 14px;
 }
 /* Divider + header introducing the feature demos below. The divider's own rule
    only sets space beneath the line, so add the matching space above it here. */
