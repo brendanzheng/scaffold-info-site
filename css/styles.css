@@ -26,6 +26,7 @@
 
     --divider: rgba(255, 255, 255, 0.55);
     --flow-gap: clamp(28px, 4.5vw, 52px);   /* vertical rhythm between stacked blocks */
+    --tile-gap: clamp(24px, 4vw, 40px);     /* gap between the feature demo tiles */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -252,7 +253,9 @@ p  { margin: 0 0 1rem; }
 
 /* ── Hero ────────────────────────────────────────────────────────────────── */
 .hero {
-    padding: clamp(28px, 5vw, 56px) 0 clamp(40px, 7vw, 80px);
+    /* No bottom padding: the hero ends in the demos header, and .features owns
+       the space down to the first tile so it equals the tile-to-tile gap. */
+    padding: clamp(28px, 5vw, 56px) 0 0;
     text-align: center;
 }
 .hero .logo-xl { display: block; margin: 0 auto 24px; width: clamp(140px, 26vw, 210px); height: auto; }
@@ -392,14 +395,16 @@ p  { margin: 0 0 1rem; }
 .band .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
 
 /* ── Feature walkthrough ─────────────────────────────────────────────────── */
-.features { padding-top: var(--flow-gap); }
+/* The hero's demos header reads as the first item in this stack, so the space
+   above the first tile matches the gap between tiles (hero padding-bottom is 0). */
+.features { padding-top: var(--tile-gap); }
 .features .container {
     display: grid;
     /* minmax(0, 1fr) caps the track at the container width: without it the
        auto track grows to the widest demo's min-content and overflows narrow
        screens (horizontal scroll). The demos are fluid and self-clip within. */
     grid-template-columns: minmax(0, 1fr);
-    gap: clamp(24px, 4vw, 40px);
+    gap: var(--tile-gap);
 }
 .feature {
     text-align: center;
