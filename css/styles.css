@@ -1326,7 +1326,7 @@ img.about-photo {
 }
 .res-empty {
     padding: clamp(28px, 4vw, 44px);
-    border: 1px dashed var(--border-hi);
+    border: 1px solid var(--border-hi);
     border-radius: var(--radius-lg);
     text-align: center;
     color: var(--ink-dim);
