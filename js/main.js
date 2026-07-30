@@ -595,4 +595,70 @@
             start();
         }
     })();
+
+    // ── Example Starting Points browser ──────────────────────────────────
+    // Turns the plain list of .sp-card articles into a filtered carousel: the
+    // chips pick a category, the arrows step through the matches. The markup
+    // lists every card, so with JS off the page still reads as a full list.
+    (function () {
+        var root = document.querySelector("[data-sp]");
+        if (!root) return;
+
+        var cards = Array.prototype.slice.call(root.querySelectorAll(".sp-card"));
+        var chips = Array.prototype.slice.call(root.querySelectorAll("[data-sp-filter]"));
+        var prev = root.querySelector("[data-sp-prev]");
+        var next = root.querySelector("[data-sp-next]");
+        var indexOut = root.querySelector("[data-sp-index]");
+        var totalOut = root.querySelector("[data-sp-total]");
+        if (!cards.length || !prev || !next) return;
+
+        var matches = cards;   // cards in the active category
+        var pos = 0;           // index within `matches`
+
+        function render() {
+            cards.forEach(function (card) {
+                card.classList.toggle("is-current", card === matches[pos]);
+            });
+            if (indexOut) indexOut.textContent = String(matches.length ? pos + 1 : 0);
+            if (totalOut) totalOut.textContent = String(matches.length);
+            // One card in view means there is nowhere to step to.
+            prev.disabled = pos <= 0;
+            next.disabled = pos >= matches.length - 1;
+        }
+
+        function filter(name) {
+            matches = name === "all" ? cards : cards.filter(function (card) {
+                return (card.getAttribute("data-tags") || "").split(/\s+/).indexOf(name) !== -1;
+            });
+            pos = 0;
+            chips.forEach(function (chip) {
+                chip.setAttribute("aria-pressed", chip.getAttribute("data-sp-filter") === name ? "true" : "false");
+            });
+            render();
+        }
+
+        function step(delta) {
+            var at = pos + delta;
+            if (at < 0 || at > matches.length - 1) return;
+            pos = at;
+            render();
+        }
+
+        chips.forEach(function (chip) {
+            chip.addEventListener("click", function () {
+                filter(chip.getAttribute("data-sp-filter"));
+            });
+        });
+        prev.addEventListener("click", function () { step(-1); });
+        next.addEventListener("click", function () { step(1); });
+
+        // Left/right arrows page through the cards once the browser has focus.
+        root.addEventListener("keydown", function (e) {
+            if (e.key === "ArrowLeft") { step(-1); }
+            else if (e.key === "ArrowRight") { step(1); }
+        });
+
+        root.classList.add("is-enhanced");   // hand layout over to the carousel CSS
+        filter("all");
+    })();
 })();

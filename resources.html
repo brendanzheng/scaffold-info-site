@@ -35,10 +35,36 @@
     <main>
         <section class="section-sm" style="padding-top:clamp(48px,8vw,88px);">
             <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Resources</span>
-                    <h1>In progress.</h1>
-                    <p class="lead">We're still putting this page together. Check back soon.</p>
+                <h1 class="about-title" style="margin-bottom:var(--flow-gap);">Resources</h1>
+
+                <!-- Starred: the pieces we most want readers to start with. -->
+                <div class="res-group">
+                    <p class="res-group-label">Starred</p>
+                    <div class="res-list">
+                        <a class="res-item" href="starting-points.html">
+                            <!-- Thumbnail: a miniature of the app's opening screen (logo,
+                                 intro line, chatbox), drawn in CSS rather than screenshotted. -->
+                            <div class="res-thumb" aria-hidden="true">
+                                <img src="assets/scaffold-mark.svg" width="34" height="34" alt="" />
+                                <span class="res-thumb-line short"></span>
+                                <span class="res-thumb-field"></span>
+                                <span class="res-thumb-line"></span>
+                                <span class="res-thumb-line short"></span>
+                            </div>
+                            <div class="res-item-body">
+                                <h2>Example Starting Points</h2>
+                                <p>One of the most common questions we get about Scaffold is, What should I interact with it about?</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <hr class="section-divider" style="margin-top:var(--flow-gap);" />
+
+                <!-- Latest: newest writing, once there is more than the starred piece. -->
+                <div class="res-group">
+                    <p class="res-group-label">Latest</p>
+                    <p class="res-empty">Coming soon.</p>
                 </div>
             </div>
         </section>
