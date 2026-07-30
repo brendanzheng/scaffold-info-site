@@ -1354,17 +1354,6 @@ img.about-photo {
     .res-topbar h1, .res-topbar-action { grid-column: auto; justify-self: center; }
 }
 
-/* Breadcrumb on the article pages — "Resources > This page". */
-.crumbs {
-    font-style: italic;
-    color: var(--ink-dim);
-    font-size: 0.98rem;
-    margin: 6px 0 0;
-}
-.crumbs a { text-decoration: underline; }
-.crumbs a:hover { color: var(--accent); }
-.crumbs .crumb-sep { margin: 0 6px; }
-
 /* ── Version tracker ─────────────────────────────────────────────────────────
    One collapsible row per release date, separated by rules. Same native
    <details> mechanism as the FAQ, so it works without JS. */
