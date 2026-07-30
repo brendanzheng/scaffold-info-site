@@ -1444,9 +1444,17 @@ img.about-photo {
     font-size: clamp(1.05rem, 2.3vw, 1.5rem);
     line-height: 1.5;
 }
-/* Carousel mode (JS on): one card at a time, with the pager below. */
-.sp-browser.is-enhanced .sp-card { display: none; }
-.sp-browser.is-enhanced .sp-card.is-current { display: flex; }
+/* Carousel mode (JS on): one card at a time, with the pager below.
+   Every card is stacked into the same grid area, so the stage always stands as
+   tall as the longest prompt and the pager below it never moves as you flip.
+   Hidden cards keep their space (visibility, not display) but leave the tab
+   order and the accessibility tree. */
+.sp-browser.is-enhanced .sp-stage { grid-template-areas: "card"; }
+.sp-browser.is-enhanced .sp-card {
+    grid-area: card;
+    visibility: hidden;
+}
+.sp-browser.is-enhanced .sp-card.is-current { visibility: visible; }
 .sp-browser:not(.is-enhanced) .sp-filters,
 .sp-browser:not(.is-enhanced) .sp-pager { display: none; }
 .sp-pager {
