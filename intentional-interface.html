@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Intentional interface — Scaffold</title>
+    <meta name="description" content="Scaffold is a series of intentional choices. A slideshow spotlighting some of the interface decisions behind the product." />
+    <link rel="icon" type="image/svg+xml" href="assets/scaffold.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="index.html" aria-label="Scaffold home">
+                <span class="wordmark">SCAFFOLD</span>
+                <img class="brand-mark" src="assets/scaffold-mark.svg" width="34" height="34" alt="" />
+            </a>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </button>
+            <nav class="nav" id="nav">
+                <a href="index.html">Home</a>
+                <a href="philosophy.html">Philosophy</a>
+                <a href="about-us.html">About Us</a>
+                <a href="community.html">Community</a>
+                <a href="resources.html" aria-current="page">Resources</a>
+                <a class="nav-launch btn btn-primary" href="https://app.thinkwithscaffold.com">Launch Scaffold</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-sm" style="padding-top:clamp(48px,8vw,88px);padding-bottom:0;">
+            <div class="container">
+                <h1 class="about-title sp-title">2026.07.16 - Intentional interface</h1>
+                <p class="sp-meta">Last modified 7/16/2026</p>
+                <div class="about-copy">
+                    <p>Scaffold is a series of intentional choices. We spotlight some of them below.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Intentional design slideshow ────────────────────────────────
+             The deck, exported slide by slide. The pager steps through one
+             slide at a time. Without JS every slide simply lists out, so the
+             whole deck stays readable. -->
+        <section class="section" style="padding-top:0;">
+            <div class="container">
+                <hr class="section-divider" style="margin-top:var(--flow-gap);" />
+                <div class="ss-viewer" data-ss>
+                    <div class="ss-stage">
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/1.png" width="1080" height="1350" alt="Slide 1: Intentional Design — building a website that supports people in sitting with their thoughts. Part I: Interface Features. A photo of Hill and Brendan on a rocky shoreline." />
+                        </figure>
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/2.png" width="1080" height="1350" loading="lazy" alt="Slide 2: I. A green color palette. Like normal people, we started off imagining the interface as either black or white. But we thought it would be cute to lean into the scaffold (building) motif, and pay homage to the distinctively green scaffolding in New York, the city where we grew up." />
+                        </figure>
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/3.png" width="1080" height="1350" loading="lazy" alt="Slide 3: II. Scrolling up instead of down. For most digital experiences, we're used to scrolling from the top-down. But we wanted to subvert traditional design (and, again, play into the idea of scaffolding). So, over an interaction, you can imagine yourself building up from your initial foundation." />
+                        </figure>
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/4.png" width="1080" height="1350" loading="lazy" alt="Slide 4: III. Highlighting user inputs. Scaffold is meant to center your thoughts, rather than the chatbot's. To reflect that hierarchy of prioritization, we made the user input blocks lighter and made Scaffold's responses blend into the background." />
+                        </figure>
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/5.png" width="1080" height="1350" loading="lazy" alt="Slide 5: IV. Adding a formatting bar. People tend to use chatbots in extractive ways; asking a question, getting the answer, and then abandoning the inquiry. We wanted people to use Scaffold to develop thoughts that they would keep coming back to. Inspired by our own approaches to writing, we added a formatting bar to encourage users to revisit and spotlight the insights in their thinking." />
+                        </figure>
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/6.png" width="1080" height="1350" loading="lazy" alt="Slide 6: V. Adding sticky notes. We know that workflows can get messy. Sometimes, there are notes that you need to keep front of mind, or else you'll forget. That's what sticky notes are for; they stick to one place on your screen, and they'll stay there even as your interaction progresses. Kind of like that affirmation you have for yourself at the top of your mirror." />
+                        </figure>
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/7.png" width="1080" height="1350" loading="lazy" alt="Slide 7: VI. Allowing users to decide the end. Scaffold is designed to offer to conclude when it seems that the user has addressed their stated goal (usually, it takes around 20 user inputs). However, we recognize that Scaffold's judgment on progress may not align with the users. So we added a check mark feature that the user can click to indicate their satisfaction with the interaction." />
+                        </figure>
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/8.png" width="1080" height="1350" loading="lazy" alt="Slide 8: VII. Ending with takeaways. After you click the checkmark, you will be prompted to add your key takeaways from the interaction. There aren't enough digital spaces that encourage us to reflect. So we sought to build that process directly into our product. At the same time, we know not everyone likes reflection, so we've made that step optional." />
+                        </figure>
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/9.png" width="1080" height="1350" loading="lazy" alt="Slide 9: VIII. Allowing interaction export. Keeping with the theme of using Scaffold to preserve your ideas, we wanted to give users a way to easily save and recall their interactions." />
+                        </figure>
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/10.png" width="1080" height="1350" loading="lazy" alt="Slide 10: IX. Enabling user accounts. For many chatbots, the first thing you see is the new chat window. But with Scaffold, you're first brought to your interaction history (think Google Docs). With that choice, we hope to nudge you towards remembering the thoughts that you've already had, rather than rushing you to get to the next thing." />
+                        </figure>
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/11.png" width="1080" height="1350" loading="lazy" alt="Slide 11: X. Linking the info and interaction sites. Scaffold is firmly rooted in our values and background, and we want users to be able to readily access that information. Thus, we've added buttons visibly linking our informational and interaction sites." />
+                        </figure>
+                        <figure class="ss-slide">
+                            <img src="pics/intentional-design-slideshow/12.png" width="1080" height="1350" loading="lazy" alt="Slide 12: Scaffold is now live at thinkwithscaffold.com. Try it out and let us know what you think! — Brendan + Hillary" />
+                        </figure>
+                    </div>
+
+                    <div class="sp-pager">
+                        <button class="sp-arrow" type="button" data-ss-prev aria-label="Previous slide">&lt;</button>
+                        <p class="sp-count" aria-live="polite" aria-atomic="true"><span data-ss-index>1</span> of <span data-ss-total>12</span></p>
+                        <button class="sp-arrow" type="button" data-ss-next aria-label="Next slide">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <span>© <span id="year">2026</span> Scaffold</span>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="philosophy.html">Philosophy</a>
+                <a href="about-us.html">About Us</a>
+                <a href="community.html">Community</a>
+                <a href="resources.html">Resources</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </nav>
+            <div class="footer-social">
+                <a href="https://hillzn8.substack.com/t/scaffold" target="_blank" rel="noopener noreferrer" aria-label="Scaffold on Substack"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a>
+                <a href="https://www.instagram.com/buildingscaffold/" target="_blank" rel="noopener noreferrer" aria-label="Scaffold on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                <a href="https://www.tiktok.com/@buildingscaffold" target="_blank" rel="noopener noreferrer" aria-label="Scaffold on TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
