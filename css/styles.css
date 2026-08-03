@@ -1332,6 +1332,9 @@ img.about-photo {
     background: var(--bg);
     border: 1px solid var(--border);
 }
+/* Portrait sources (slideshow covers) crop from the top, so the deck's title
+   survives the 3/2 frame instead of being cut out of the middle. */
+.res-thumb-top { object-position: top; }
 .res-empty {
     padding: clamp(28px, 4vw, 44px);
     border: 1px solid var(--border-hi);
@@ -1495,6 +1498,41 @@ img.about-photo {
     color: var(--ink-dim);
     font-variant-numeric: tabular-nums;
 }
+
+/* ── Intentional design slideshow ─────────────────────────────────────────────
+   A deck exported slide by slide. Same shape as the starting points browser —
+   the markup lists every slide, and main.js stacks them into one frame with the
+   pager below. Slides are 4/5 portrait, so the frame is capped by height rather
+   than width to keep a whole slide on screen. Reuses .sp-pager for the pager. */
+.ss-viewer { margin-top: var(--flow-gap); }
+.ss-stage { display: grid; gap: 18px; justify-items: center; }
+.ss-slide {
+    margin: 0;
+    max-width: 100%;
+    padding: clamp(12px, 1.8vw, 20px);
+    border: 1px solid var(--border-hi);
+    border-radius: var(--radius-lg);
+    background: var(--bg-elevated);
+}
+.ss-slide img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: min(72vh, 740px);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+}
+/* Viewer mode (JS on): one slide at a time. Every slide sits in the same grid
+   area, so the pager below never moves as you flip. Hidden slides keep their
+   space (visibility, not display) but leave the tab order. */
+.ss-viewer.is-enhanced .ss-stage { grid-template-areas: "slide"; }
+.ss-viewer.is-enhanced .ss-slide {
+    grid-area: slide;
+    visibility: hidden;
+}
+.ss-viewer.is-enhanced .ss-slide.is-current { visibility: visible; }
+.ss-viewer:not(.is-enhanced) .sp-pager { display: none; }
 
 /* Small helpers */
 .center { text-align: center; }

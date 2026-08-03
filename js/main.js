@@ -661,4 +661,51 @@
         root.classList.add("is-enhanced");   // hand layout over to the carousel CSS
         filter("all");
     })();
+
+    // ── Intentional design slideshow ─────────────────────────────────────
+    // Turns the plain run of .ss-slide figures into a one-at-a-time viewer,
+    // stepped by the arrows. The markup lists every slide, so with JS off the
+    // page still reads as the whole deck top to bottom.
+    (function () {
+        var root = document.querySelector("[data-ss]");
+        if (!root) return;
+
+        var slides = Array.prototype.slice.call(root.querySelectorAll(".ss-slide"));
+        var prev = root.querySelector("[data-ss-prev]");
+        var next = root.querySelector("[data-ss-next]");
+        var indexOut = root.querySelector("[data-ss-index]");
+        var totalOut = root.querySelector("[data-ss-total]");
+        if (!slides.length || !prev || !next) return;
+
+        var pos = 0;
+
+        function render() {
+            slides.forEach(function (slide, i) {
+                slide.classList.toggle("is-current", i === pos);
+            });
+            if (indexOut) indexOut.textContent = String(pos + 1);
+            if (totalOut) totalOut.textContent = String(slides.length);
+            prev.disabled = pos <= 0;
+            next.disabled = pos >= slides.length - 1;
+        }
+
+        function step(delta) {
+            var at = pos + delta;
+            if (at < 0 || at > slides.length - 1) return;
+            pos = at;
+            render();
+        }
+
+        prev.addEventListener("click", function () { step(-1); });
+        next.addEventListener("click", function () { step(1); });
+
+        // Left/right arrows page through the deck once the viewer has focus.
+        root.addEventListener("keydown", function (e) {
+            if (e.key === "ArrowLeft") { step(-1); }
+            else if (e.key === "ArrowRight") { step(1); }
+        });
+
+        root.classList.add("is-enhanced");   // hand layout over to the viewer CSS
+        render();
+    })();
 })();
