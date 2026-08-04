@@ -12,6 +12,7 @@ Thumbs.db
 node_modules/
 
 # Photo source originals — kept locally; the optimized web JPEGs are committed
-pics/*.HEIC
+pics/**/*.HEIC
+pics/**/*.heic
 pics/Brendan.jpeg
 pics/Sophia Akhter.jpeg
