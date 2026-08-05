@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Resources thumbnail for "Scaffold's System Prompt" — a prompt document sat on
+     a faint scaffold lattice. 3/2 to match the .res-thumb frame. Palette taken
+     from css/styles.css (bg-elevated, ink, accent). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="">
+  <rect width="900" height="600" fill="#0c3a20"/>
+
+  <!-- Scaffold lattice behind the card: the same triangulated linework as the mark. -->
+  <g stroke="#8ecba4" stroke-opacity="0.16" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M0 150 H900 M0 300 H900 M0 450 H900"/>
+    <path d="M150 0 V600 M450 0 V600 M750 0 V600"/>
+    <path d="M0 0 L900 600 M900 0 L0 600 M450 0 L900 300 M450 0 L0 300 M450 600 L900 300 M450 600 L0 300"/>
+  </g>
+
+  <!-- The prompt itself. -->
+  <g>
+    <rect x="192" y="108" width="516" height="384" rx="26" fill="#133622" stroke="#8ecba4" stroke-opacity="0.34" stroke-width="2"/>
+
+    <!-- Heading rule, then lines of text: the long run of body copy that governs
+         each response. The three accent bars mark the three stages. -->
+    <g fill="#8ecba4">
+      <rect x="240" y="160" width="150" height="14" rx="7"/>
+    </g>
+    <g fill="#e8f0ea" fill-opacity="0.30">
+      <rect x="240" y="204" width="420" height="10" rx="5"/>
+      <rect x="240" y="232" width="376" height="10" rx="5"/>
+      <rect x="240" y="260" width="404" height="10" rx="5"/>
+    </g>
+
+    <g fill="#8ecba4" fill-opacity="0.85">
+      <rect x="240" y="306" width="96" height="10" rx="5"/>
+    </g>
+    <g fill="#e8f0ea" fill-opacity="0.30">
+      <rect x="352" y="306" width="308" height="10" rx="5"/>
+      <rect x="240" y="334" width="352" height="10" rx="5"/>
+    </g>
+
+    <g fill="#8ecba4" fill-opacity="0.85">
+      <rect x="240" y="380" width="132" height="10" rx="5"/>
+    </g>
+    <g fill="#e8f0ea" fill-opacity="0.30">
+      <rect x="388" y="380" width="272" height="10" rx="5"/>
+      <rect x="240" y="408" width="300" height="10" rx="5"/>
+    </g>
+
+    <!-- The question mark that every response has to end on. -->
+    <g fill="none" stroke="#8ecba4" stroke-width="10" stroke-linecap="round" transform="translate(-8,-32)">
+      <path d="M596 438 q0-22 22-22 t22 22 q0 18-22 24 v10"/>
+      <path d="M618 494 v0"/>
+    </g>
+  </g>
+</svg>
