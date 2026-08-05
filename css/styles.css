@@ -1106,6 +1106,41 @@ img.about-photo {
 .about-copy p, .bio p { font-size: 1.1rem; line-height: 1.8; }
 .about-copy p { margin-bottom: 1.4em; }
 .about-copy p:last-child { margin-bottom: 0; }
+
+/* Long-form resource writing: .about-copy plus the headings and lists that a
+   piece long enough to need sections wants. Sits on top of .about-copy, so a
+   page opts in with class="about-copy doc-copy". */
+.doc-copy h2 {
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    margin: 1.9em 0 0.6em;
+}
+.doc-copy h3 {
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--accent);
+    margin: 1.8em 0 0.5em;
+}
+.doc-copy > :first-child { margin-top: 0; }
+.doc-copy ul, .doc-copy ol {
+    margin: 0 0 1.4em;
+    padding-left: 1.4em;
+    display: grid;
+    gap: 10px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--ink-dim);
+}
+.doc-copy li::marker { color: var(--accent); }
+/* A pulled-out line between sections, matching the section rules elsewhere. */
+.doc-rule {
+    border: 0;
+    border-top: 1px solid var(--border-hi);
+    width: 120px;
+    margin: 2.4em 0;
+}
+
 .about-photo-centered { width: clamp(200px, 40%, 280px); margin: 30px auto 40px; }
 
 /* Bio: text wraps around a floated photo, matching the mockups.

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scaffold&rsquo;s System Prompt — Scaffold</title>
+    <meta name="description" content="Scaffold's function is governed by a ~2,000 word system prompt. A summary of the key principles guiding each response and the overall interaction flow." />
+    <link rel="icon" type="image/svg+xml" href="assets/scaffold.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="index.html" aria-label="Scaffold home">
+                <span class="wordmark">SCAFFOLD</span>
+                <img class="brand-mark" src="assets/scaffold-mark.svg" width="34" height="34" alt="" />
+            </a>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </button>
+            <nav class="nav" id="nav">
+                <a href="index.html">Home</a>
+                <a href="philosophy.html">Philosophy</a>
+                <a href="about-us.html">About Us</a>
+                <a href="community.html">Community</a>
+                <a href="resources.html" aria-current="page">Resources</a>
+                <a class="nav-launch btn btn-primary" href="https://app.thinkwithscaffold.com">Launch Scaffold</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-sm" style="padding-top:clamp(48px,8vw,88px);padding-bottom:0;">
+            <div class="container">
+                <h1 class="about-title sp-title">Scaffold&rsquo;s System Prompt</h1>
+                <p class="sp-meta">Last modified 8/3/2026</p>
+                <div class="about-copy">
+                    <p>Scaffold&rsquo;s function is governed by a ~2,000 word system prompt. This prompt guides each individual Scaffold response, as well as the flow of the overall user interaction. Please know that we are continuing to evolve this user prompt to align it with best practices and respond to user feedback. However, the summary below captures the key principles of our guidance, which will remain largely consistent throughout future iterations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── The prompt, summarised ──────────────────────────────────────
+             Long-form prose: .doc-copy adds the heading and list styling on
+             top of the shared .about-copy paragraph rhythm. -->
+        <section class="section" style="padding-top:0;">
+            <div class="container">
+                <hr class="section-divider" style="margin-top:var(--flow-gap);" />
+                <div class="about-copy doc-copy">
+                    <h2>Instructions for Individual Responses</h2>
+                    <p>There are roughly three categories of instructions that we have set out for each Scaffold response:</p>
+                    <ul>
+                        <li>Length &amp; Presentation style (how the response should look)</li>
+                        <li>Composition (what the response should consist of)</li>
+                        <li>Restrictions (what the response should not contain)</li>
+                    </ul>
+                    <p>We briefly explain the instructions in each of these categories below.</p>
+
+                    <h3>Length &amp; Presentation Style</h3>
+                    <p>One of our priorities with Scaffold is accessibility. We understand that there is considerable cognitive load associated with critical thinking, and we didn&rsquo;t want Scaffold to unnecessarily add to that load. To that point, we imposed a word limit to each Scaffold response, as well as instructed Scaffold to present each individual response as a single, continuous block of text (without paragraph breaks).</p>
+
+                    <h3>Composition</h3>
+                    <p>We wanted each Scaffold response to be focused on the act of providing scaffolding. To that end, it should only do two things: (1) reiterate the user&rsquo;s most recent point and (2) connect that point to the user&rsquo;s broader objective.</p>
+                    <p>We stipulated a maximum of three components to each Scaffold response: the affirmation, the question, and examples. Only one of these components, the question, is mandatory. These components were instituted with Scaffold&rsquo;s aforementioned goals in mind.</p>
+
+                    <p><em>The Affirmation.</em> The affirmation reframes the user&rsquo;s previous input, drawing upon specific language whenever possible. The affirmation serves a dual-purpose. First, it is meant to give the user an external perspective on their previous input. Seeing their ideas reformulated may lead the user to identify shortcomings in their reasoning, or areas where they failed to communicate their point.</p>
+                    <p>Second, the affirmation is meant to remind the user of where they last left off. Yes, they may have just submitted their previous response. However, the affirmation is meant to solidify that thought, especially in preparation for the question that Scaffold will then pose to the user.</p>
+
+                    <p><em>The Question.</em> The question is how Scaffold brings the user from their current state of understanding to a new state. It is the crux of each Scaffold response.</p>
+
+                    <p><em>Examples.</em> Examples are an optional component of Scaffold responses. They are meant to provide some outside input, especially when it seems the user is stuck.</p>
+
+                    <hr class="doc-rule" />
+
+                    <p>In line with our aforementioned goal of accessibility, we have sought to make each sentence in Scaffold as digestible as possible. To that end, we have instructed Scaffold to include only one idea per sentence, avoiding compound sentences and complex punctuation whenever possible.</p>
+
+                    <h3>Restrictions</h3>
+                    <p>Our approach to building Scaffold rejects the conventional wisdom that chatbots should be optimized for accuracy. Scaffold does not have domain expertise, per se&ndash;rather, its &ldquo;expertise,&rdquo; (reflective of our expertise) is in asking questions and sustaining an organized interaction.</p>
+                    <p>To that point, we have explicitly instructed Scaffold to never formulate an opinion or to internalize a perspective. It can suggest perspectives for the user to consider, as a way of stimulating their thinking. But Scaffold should never claim that perspective as their own. Scaffold has been instructed to respond neutrally to users&rsquo; inputs, with the warning that some user inputs may be considered harmful or inaccurate by others. However, it is not Scaffold&rsquo;s job to make that determination.</p>
+                    <p>Nor should Scaffold ever search the Internet. Scaffold&rsquo;s purpose in users&rsquo; thinking is not providing information; it&rsquo;s organizing information that they already have access to.</p>
+
+                    <h2>Instructions for Overall Interaction Flow</h2>
+                    <p>A Scaffold interaction occurs sequentially in three stages:</p>
+                    <ol>
+                        <li>Context</li>
+                        <li>Deep Thinking</li>
+                        <li>Conclusion</li>
+                    </ol>
+                    <p>We briefly explain each of these stages below.</p>
+
+                    <h3>Context</h3>
+                    <p>The first stage of a Scaffold interaction is the Context stage. During this stage, Scaffold works with the user to clarify the <em>what</em> and <em>why</em> of their interaction. This stage ends when the user is able to articulate a goal for the interaction, which informs the subsequent Deep Thinking stage.</p>
+                    <p>The duration of the Context stage varies, but it typically requires at least five user inputs.</p>
+
+                    <h3>Deep Thinking</h3>
+                    <p>After the user has articulated their objective in the Context stage, the Deep Thinking stage supports the user in actually progressing their thinking towards that objective. In this stage, Scaffold has been instructed to respond with techniques that we applied in our own tutoring, such as:</p>
+                    <ul>
+                        <li>Asking the user to consider the internal consistency of their ideas</li>
+                        <li>Asking the user to articulate their &ldquo;so what&rdquo;</li>
+                        <li>Asking the user to clarify ambiguous language</li>
+                    </ul>
+
+                    <h3>Conclusion</h3>
+                    <p>When it seems the user has achieved the objective of their interaction, as articulated in the Context stage, Scaffold may offer to end the interaction. Normally, reaching this stage takes around 20 user inputs. However, Scaffold will not autonomously initiate the Conclusion; that power lies exclusively with the user. Upon clicking the checkmark to conclude, the user will trigger a reflection sequence (optional, but highly suggested).</p>
+
+                    <h2>The Summarization Prompt</h2>
+                    <p>As aforementioned, Scaffold&rsquo;s responses are primarily governed by a system prompt. However, it would be remiss to not also mention Scaffold&rsquo;s summarization prompt.</p>
+                    <p>Scaffold&rsquo;s summarization prompt is applied as a context-management technique. Scaffold has a context window of ten exchanges, encompassing both user inputs and Scaffold responses. Each time the context window resets (after ten exchanges have been processed), Scaffold replaces the text of those exchanges with a summary. As the interaction progresses, the summary evolves. Each point in the summary is cited.</p>
+                    <p>The summary contains six categories of information:</p>
+                    <ul>
+                        <li>Domain</li>
+                        <li>Goal</li>
+                        <li>Personal perspectives</li>
+                        <li>External perspectives</li>
+                        <li>Assertions</li>
+                        <li>Outstanding points</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <span>© <span id="year">2026</span> Scaffold</span>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="philosophy.html">Philosophy</a>
+                <a href="about-us.html">About Us</a>
+                <a href="community.html">Community</a>
+                <a href="resources.html">Resources</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </nav>
+            <div class="footer-social">
+                <a href="https://hillzn8.substack.com/t/scaffold" target="_blank" rel="noopener noreferrer" aria-label="Scaffold on Substack"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a>
+                <a href="https://www.instagram.com/buildingscaffold/" target="_blank" rel="noopener noreferrer" aria-label="Scaffold on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                <a href="https://www.tiktok.com/@buildingscaffold" target="_blank" rel="noopener noreferrer" aria-label="Scaffold on TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
