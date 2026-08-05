@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Resources thumbnail for "Scaffold's System Prompt" — a laptop emoji on the
-     site's elevated green. 3/2 to match the .res-thumb frame. -->
+<!-- Resources thumbnail for "Scaffold's System Prompt" — a desktop computer emoji
+     on the site's elevated green. 3/2 to match the .res-thumb frame. -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="">
   <rect width="900" height="600" fill="#0c3a20"/>
-  <text x="450" y="300" text-anchor="middle" dominant-baseline="central" font-size="300">&#x1F4BB;</text>
+  <text x="450" y="300" text-anchor="middle" dominant-baseline="central" font-size="300">&#x1F5A5;&#xFE0F;</text>
 </svg>
