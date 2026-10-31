@@ -1194,19 +1194,16 @@ img.about-photo {
     /* Drop the document title on phones: it crowds the action row and adds
        nothing on a phone-width mock. */
     .demo-hd-title { display: none; }
-    /* In the narrow takeaways panel the side-by-side actions don't fit:
-       "+ Add takeaway" wraps to two lines and "Continue interaction" overflows
-       the panel into the format sidebar. Stack them so each sits on its own
-       line within the panel. */
+    /* In the narrow takeaways panel the actions don't fit on one line, so
+       they split as in the app's phone layout: "+ Add takeaway" on its own
+       line, then Unpin (left) and "Continue interaction" (right) below it. */
     .demo-tk-actions {
         flex-direction: column;
         align-items: stretch;
-        gap: 10px;
+        gap: 14px;
     }
-    .demo-tk-add { white-space: nowrap; text-align: left; }
-    /* Same reasoning for the right-hand pair: stack them within the panel. */
-    .demo-tk-action-group { flex-direction: column; align-items: flex-start; gap: 10px; }
-    .demo-tk-continue { align-self: flex-start; }
+    .demo-tk-add { white-space: nowrap; text-align: left; align-self: flex-start; }
+    .demo-tk-action-group { justify-content: space-between; gap: 12px; }
 }
 
 /* ── FAQ accordion ───────────────────────────────────────────────────────── */
