@@ -1255,7 +1255,7 @@ img.about-photo {
 /* Multi-paragraph answers: space between paragraphs, none around the block. */
 .faq-answer p + p { margin-top: 1em; }
 /* Inline links in body copy — underlined like .prose, since bare `a` inherits. */
-.faq-answer a, .about-copy a { color: var(--ink); text-decoration: underline; }
+.faq-answer a, .about-copy a, .vt-body a { color: var(--ink); text-decoration: underline; }
 .faq-answer a:hover, .about-copy a:hover { color: var(--accent); }
 .faq-answer .faq-todo { color: var(--ink-faint); font-style: italic; }
 
