@@ -402,7 +402,7 @@
 
     // ── Demo 5 · "Save and export for future reference" ──────────────────
     // The full app window. A demo cursor clicks "Export chat" to open the
-    // file-type menu, then clicks "Text file"; the menu closes and it loops.
+    // file-type menu, then clicks "PDF"; the menu closes and it loops.
     // The completed-on timestamp is stamped with the current date/time.
     (function initExportDemo() {
         var root = document.querySelector('[data-demo="export"]');
@@ -410,9 +410,9 @@
 
         var cursor = root.querySelector(".demo-cursor");
         var exportBtn = root.querySelector(".demo-export-btn");
-        var textBtn = root.querySelector(".demo-ex-text");
+        var pdfBtn = root.querySelector(".demo-ex-pdf");
         var when = root.querySelector(".demo-tk-when");
-        if (!cursor || !exportBtn || !textBtn || !when) return;
+        if (!cursor || !exportBtn || !pdfBtn || !when) return;
 
         // Stamp the completion time — "M/D/YYYY; h:mm am/pm", as in the app.
         (function stampWhen() {
@@ -450,7 +450,7 @@
 
         function cycle() {
             var token = gen;
-            root.classList.remove("is-menu-open", "is-press-export", "is-hover-text", "is-press-text");
+            root.classList.remove("is-menu-open", "is-press-export", "is-hover-pdf", "is-press-pdf");
             snapTo(root.querySelector(".demo-card"));    // rest over the interaction
 
             // 1 · glide to "Export chat" and press it → menu opens
@@ -460,12 +460,12 @@
                 root.classList.remove("is-press-export");
                 root.classList.add("is-menu-open");
             });
-            // 2 · move down to "Text file" and press it
-            wait(2400, token, function () { pointTo(textBtn); });
-            wait(3150, token, function () { root.classList.add("is-hover-text"); });
-            wait(3400, token, function () { root.classList.add("is-press-text"); });
+            // 2 · move down to "PDF" and press it
+            wait(2400, token, function () { pointTo(pdfBtn); });
+            wait(3150, token, function () { root.classList.add("is-hover-pdf"); });
+            wait(3400, token, function () { root.classList.add("is-press-pdf"); });
             wait(3570, token, function () {
-                root.classList.remove("is-press-text", "is-hover-text", "is-menu-open");
+                root.classList.remove("is-press-pdf", "is-hover-pdf", "is-menu-open");
             });
             // 3 · hold, then loop
             wait(5200, token, cycle);
@@ -483,7 +483,7 @@
             running = false;
             gen++;
             clearTimers();
-            root.classList.remove("is-running", "is-menu-open", "is-press-export", "is-hover-text", "is-press-text");
+            root.classList.remove("is-running", "is-menu-open", "is-press-export", "is-hover-pdf", "is-press-pdf");
         }
 
         if ("IntersectionObserver" in window) {
