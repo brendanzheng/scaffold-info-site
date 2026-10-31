@@ -698,8 +698,8 @@ p  { margin: 0 0 1rem; }
 .demo-conclude.is-hover-end .demo-end { background: rgba(255, 255, 255, 0.06); }
 .demo-conclude.is-press-end .demo-end { transform: scale(0.94); background: rgba(255, 255, 255, 0.14); }
 
-/* Message thread — cards with a crosshair in the right gutter and vertical
-   connector poles between them (App.tsx MessageCard / connectors). */
+/* Message thread — cards with vertical connector poles between them
+   (App.tsx MessageCard / connectors). */
 .demo-thread { display: flex; flex-direction: column; }
 .demo-row { display: flex; align-items: center; gap: 12px; }
 .demo-card {
@@ -716,17 +716,12 @@ p  { margin: 0 0 1rem; }
     line-height: 1.5;
     color: var(--ink);
 }
-.demo-target {
-    flex-shrink: 0;
-    width: clamp(36px, 5.4vw, 42px);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--ink);
-    opacity: 0.28;
-}
-.demo-target svg { width: 20px; height: 20px; }
+/* In the conclude demo the cards stop where the input box does, leaving the
+   checkmark's column (width + gap) clear on the right, as in the app. */
+.demo-thread .demo-row { margin-right: calc(clamp(36px, 5.4vw, 42px) + 12px); }
 /* Connector poles, echoing the 22% / 78% verticals between cards. The
-   right margin matches the card gutter (gap + crosshair) so the poles align
-   under the card column, not the full row. */
+   right margin matches the checkmark column so the poles align under the
+   card column, not the full row. */
 .demo-connector {
     position: relative;
     height: clamp(20px, 3.4vw, 30px);
@@ -771,7 +766,7 @@ p  { margin: 0 0 1rem; }
 /* Panels and connectors butt directly together (no inter-child gap), so the
    poles run flush out of one panel and into the next — as in the app. */
 .demo-reflect .demo-app { gap: 0; }
-/* No crosshair gutter here — the message card spans the full width like the
+/* No checkmark gutter here — the message card spans the full width like the
    takeaways panel, so the connectors span full width too. */
 .demo-reflect .demo-connector { margin-right: 0; }
 .demo-takeaways {
@@ -973,16 +968,15 @@ p  { margin: 0 0 1rem; }
     font-size: clamp(9.5px, 1.2vw, 11px); letter-spacing: 0.06em;
     padding: 8px 10px; border-radius: 4px; text-align: left; white-space: nowrap;
 }
-.demo-export.is-hover-text .demo-ex-text { background: rgba(255, 255, 255, 0.06); }
-.demo-export.is-press-text .demo-ex-text { background: rgba(255, 255, 255, 0.12); }
+.demo-export.is-hover-pdf .demo-ex-pdf { background: rgba(255, 255, 255, 0.06); }
+.demo-export.is-press-pdf .demo-ex-pdf { background: rgba(255, 255, 255, 0.12); }
 
 /* Body — canvas (left) + format sidebar (right). */
 .demo-body { display: flex; flex-direction: row; align-items: stretch; }
 .demo-export .demo-canvas {
     flex: 1; min-width: 0;
     /* Wide right gutter: both panels stop at the content box (so their right
-       edges align), and the message card's crosshair floats in the gutter —
-       adding space between the panels and the format buttons. */
+       edges align), leaving space between the panels and the format buttons. */
     padding: clamp(16px, 2.5vw, 28px) var(--canvas-pr) 0 var(--canvas-pl);
     display: flex; flex-direction: column; gap: 0;
     overflow: hidden;                          /* clip the trailing connectors */
@@ -995,14 +989,12 @@ p  { margin: 0 0 1rem; }
    the format sidebar is taller), so its poles always run to the window's
    bottom edge and are clipped there — the thread reads as continuing. */
 .demo-export .demo-canvas > .demo-connector:last-child { flex: 1 1 auto; }
-/* The crosshair floats in the right gutter instead of taking a flex column,
-   so the message card stays full width and aligns with the takeaways panel. */
-.demo-export .demo-row { position: relative; }
-.demo-export .demo-target {
-    position: absolute;
-    top: 50%;
-    left: calc(100% + 16px);
-    transform: translateY(-50%);
+
+/* The secondary header buttons (Give feedback, Settings, Sign out) only fit
+   beside Export chat on a wide window; below that they'd push the row off
+   the edge of the mock, so drop them. */
+@media (max-width: 955px) {
+    .demo-hd-extra { display: none; }
 }
 
 /* Format sidebar — 60px rail of formatting tools. */
@@ -1025,7 +1017,7 @@ p  { margin: 0 0 1rem; }
     display: flex; align-items: center; justify-content: center;
     border-radius: 6px;
 }
-.demo-fmt-undo { opacity: 0.3; }               /* nothing to undo → dimmed */
+.demo-fmt-undo { opacity: 0.3; }               /* nothing to undo/redo → dimmed */
 .demo-fmt-btn svg { width: clamp(16px, 2.2vw, 22px); height: clamp(16px, 2.2vw, 22px); }
 .demo-fmt-divider { height: 1px; background: var(--border); margin: 4px 6px; }
 .demo-fmt-badge {
@@ -1043,7 +1035,7 @@ p  { margin: 0 0 1rem; }
     max-width: 100%;                           /* full width like the export demo */
     --fmt-w: clamp(44px, 5vw, 60px);
     --canvas-pl: clamp(16px, 3vw, 40px);
-    /* Smaller right gutter than the export demo — the crosshair/checkmark float
+    /* Smaller right gutter than the export demo — the checkmark floats
        here and the format bar sits close — but with a touch of breathing room so
        the checkmark doesn't crowd the formatting bar. */
     --canvas-pr: clamp(62px, 6.4vw, 76px);
@@ -1058,11 +1050,10 @@ p  { margin: 0 0 1rem; }
 /* Disclaimer and input row get breathing room; cards/connectors stay flush. */
 .demo-highlight .demo-disclaimer { margin-bottom: clamp(14px, 2.2vw, 22px); }
 .demo-highlight .demo-input-row  { margin-bottom: clamp(20px, 3vw, 32px); }
-/* Panels span the full content width; crosshair + checkmark float in the gutter. */
+/* Panels span the full content width; the checkmark floats in the gutter. */
 .demo-highlight .demo-connector { margin-right: 0; }
 .demo-highlight .demo-canvas > .demo-connector:last-child { flex: 1 1 auto; }
 .demo-highlight .demo-row { position: relative; }
-.demo-highlight .demo-target,
 .demo-highlight .demo-check {
     position: absolute;
     top: 50%;
@@ -1203,19 +1194,18 @@ img.about-photo {
     /* Drop the document title on phones: it crowds the action row and adds
        nothing on a phone-width mock. */
     .demo-hd-title { display: none; }
-    /* In the narrow takeaways panel the side-by-side actions don't fit:
-       "+ Add takeaway" wraps to two lines and "Continue interaction" overflows
-       the panel into the format sidebar. Stack them so each sits on its own
-       line within the panel. */
+    /* In the narrow takeaways panel the actions don't fit on one line, so
+       they split as in the app's phone layout: "+ Add takeaway" on its own
+       line, then Unpin (left) and "Continue interaction" (right) below it.
+       If the panel is too narrow for that pair, the button wraps under Unpin
+       instead of spilling out of the panel. */
     .demo-tk-actions {
         flex-direction: column;
         align-items: stretch;
-        gap: 10px;
+        gap: 14px;
     }
-    .demo-tk-add { white-space: nowrap; text-align: left; }
-    /* Same reasoning for the right-hand pair: stack them within the panel. */
-    .demo-tk-action-group { flex-direction: column; align-items: flex-start; gap: 10px; }
-    .demo-tk-continue { align-self: flex-start; }
+    .demo-tk-add { white-space: nowrap; text-align: left; align-self: flex-start; }
+    .demo-tk-action-group { justify-content: space-between; flex-wrap: wrap; gap: 10px 12px; }
 }
 
 /* ── FAQ accordion ───────────────────────────────────────────────────────── */
